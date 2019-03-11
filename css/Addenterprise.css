@@ -1,0 +1,31 @@
+ul{
+	display: block;
+	padding:20px;
+}
+li{
+	margin-top: 16px;
+	width: 33%;
+	float: left;
+}
+li input,li select{
+	width: 280px;
+	height: 38px;
+	border: 1px solid rgba(0,0,0,0.15);
+	border-radius: 2px;
+}
+.clear:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+p span{
+	width: 120px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 4px;
+	color:#fff;
+	background: #198cff;
+	margin-right: 18px;
+	display: inline-block;
+}

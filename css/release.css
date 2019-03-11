@@ -1,0 +1,24 @@
+.releasebox{
+	margin: 28px 40px;
+}
+.release_p{
+	margin-top: 40px;
+	margin-bottom: 8px;
+	font-size: 18px;
+	color: rgba(0,0,0,0.45);
+}
+.inputsize{
+	width: 600px;
+	height: 35px;
+}
+.release_textarea{
+	margin-top: 40px;
+	width: 1280px;
+	height: 430px;
+}
+.jiadebtn{
+	/*float: left;*/
+}
+.layui-input-block{
+	margin: 0;
+}

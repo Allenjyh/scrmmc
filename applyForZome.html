@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>运营模块-广告位</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="js/css/layui.css" />
+  <link rel="stylesheet" href="js/css/layui.mobile.css" />
+  <link rel="stylesheet" href="css/scrmmcStyle.css" />
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+  <script type="text/javascript" src="js/layui.all.js" ></script>
+  
+  <style type="text/css">
+  
+  </style>
+</head>
+<body>
+ 
+<div class="boxbox" style="padding: 20px 40px; box-sizing: border-box;">
+	<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+		<div><p style="font-size: 32px;">园区申请</p></div>
+		<div>
+			<!--<button class="layui-btn layui-btn-primary editor">编辑</button>-->
+			<button class="layui-btn layui-btn-primary cancel" style="display: none;">取消</button>
+			<button class="layui-btn layui-btn-primary delete">删除</button>
+			<!--点击某行跳转-->
+			<a href="parkentry.html"><div class="rowClick" id="row" style="display: none;">梵蒂冈</div></a>
+		</div>
+	</div>
+	<div style="height: 40px; display: flex;">
+	 	<div class="select_top select_state">
+		 	<span class="select_text">状态</span><span style="font-size: 20px; margin: 0 6px 0 8px;">|</span>
+		 	<i class="layui-icon layui-icon-triangle-d" style="font-size: 18px; color: rgba(0,0,0,0.45);"></i> 
+		 	<div class="down_list">
+		 		<ul>
+		 			<li>待审核</li>
+		 			<li>审核不通过</li>
+		 		</ul>
+			</div>
+		</div>
+		<div style="color: rgba(0,0,0,0.65); margin-right: 40px;">
+			<label class="layui-form-label">日期范围</label>
+		  <div class="layui-input-inline">
+		    <input type="text" class="layui-input" id="date_text" placeholder=" - " style="border-radius: 4px;">
+		  </div>
+		</div>
+	 	<div class="" style="display: flex;">
+      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索单号、公司名称、联系方式" class="layui-input" style="border-right: none; border-radius: 4px 0 0 4px; width: 220px;">
+      <span class="serch_btn">
+      	<i class="layui-icon layui-icon-search" style="font-size: 24px; color: rgba(0,0,0,0.45);"></i>  
+      </span>
+		</div>
+	</div>
+	<table class="layui-hide" id="test1" lay-filter="test1" lay-skin='line'></table>
+	<!--<script type="text/html" id="toolbarDemo">
+	  <div class="layui-btn-container">
+	    <button class="layui-btn layui-btn-sm selecteds" lay-event="getCheckData">获取选中行数据</button>
+	    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+	    <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+	  </div>
+	</script>-->
+</div>
+
+
+<script type="text/html" id="auditType" >
+  <div data-id="{{d.id}}" {{ d.auditType == '审核不通过' ? 'style="color:rgb(255,51,85);"' : '' }}>
+  	{{d.auditType}}
+  </div>
+</script>
+
+</body>
+
+<script>
+var ids = [];
+layui.use(['table','form','laydate'], function(){
+	var table = layui.table
+  	,form = layui.form
+  	,laydate = layui.laydate
+  	,laypage = layui.laypage;
+	  table.render({
+	    elem: '#test1'
+	    ,skin:'line'
+	    ,toolbar: '#toolbarDemo'
+//	  	,url:'new_file.json'
+		,data:[{  
+			"id":"1001",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1002",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1003",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "审核不通过",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1004",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1005",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1006",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "审核不通过",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1007",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1008",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "审核不通过",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1009",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1010",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1011",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "审核不通过",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1012",
+			"propertyName": "广贸商务中心",
+			"peple":"两件品",
+			"contact": "186-0752-4585",
+			"auditType": "待审核",
+			"date": "2019/01/01"
+			 
+		}]
+    ,title: '用户数据表'
+    ,cellMinWidth: 70
+//  ,height: heig
+		,height: 'full-80'
+    ,cols: [[
+      {type: 'checkbox', width:'3%'}
+      ,{field:'id',title:'单号', width:'12%'}
+      ,{field:'propertyName',title:'物业名称', width:'12%'}
+      ,{field:'peple', title:'联系人', width:'25%'}
+      ,{field:'contact', title:'联系方式', width:'14%'}
+      ,{field:'auditType', title:'审核状态', width:'18%',templet: '#auditType'}
+      ,{field:'date', title:'日期', width:'16%'}
+    ]]
+	  ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+	    layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+	    //,curr: 5 //设定初始在第 5 页
+	    ,limit: 6
+	    ,limits: [6,10,20,30,40,50,60,70,80,90,100]
+	    ,groups: 10 //只显示 1 个连续页码
+	    ,first: false //不显示首页
+	    ,last: false //不显示尾页
+	    
+	  }
+
+    ,done: function(res, curr, count) { //表格数据加载完后的事件
+	    //调用示例
+	    layer.photos({//点击图片弹出
+	        photos: '.layer-photos-demo'
+	        ,anim: 1 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	    });
+	    //如果是异步请求数据方式，res即为你接口返回的信息。
+	    //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+	    
+	    console.log(res);
+	
+	    //得到当前页码
+	    console.log(curr);
+	
+	    //得到数据总量
+	    console.log(count);
+	    
+	    $('.boxbox').find('.layui-table-body').find("table" ).find("tbody").children("tr").children("td").on('click',function(){
+	    	if ($(this).index() == 0) {
+	    	} else{
+	    		var id = JSON.stringify($('.boxbox').find('.layui-table-body').find("table" ).find("tbody").find(".layui-table-hover").data('index'));
+	        var obj = res.data[id];
+	        console.log(obj.id);
+	        $('#row').click();
+	    	}
+    	});
+
+		}
+	 
+  });
+  
+  //日期范围
+  laydate.render({
+    elem: '#date_text'
+    ,range: true
+    ,change: function(value, date, endDate){
+	    console.log(value); //得到日期生成的值，如：2017-08-18
+	    //console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+	    //console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+	  }
+  });
+  
+	
+  
+  
+	function deletes(){
+		var checkStatus = table.checkStatus('test1');
+		if(checkStatus.data.length==0){
+			parent.layer.msg('请先选择要删除的数据行！', {icon: 2});
+			return ;
+		}
+		ids = [];
+		for(var i=0;i<checkStatus.data.length;i++){
+			ids.push(checkStatus.data[i].id);
+		}
+		layer.confirm('确定删除选中的'+ids.length+'行数据吗', function(index){
+			parent.layer.msg('删除中...', {icon: 16,shade: 0.3,time:1000});
+			for (let i = 0; i < ids.length; i++) {
+         $("div[data-id='" + ids[i] + "']").parent().parent().parent().remove();
+      }
+		/*$.post('url',
+		    {'ids':ids},
+		    function(data){
+		        layer.closeAll('loading');
+		        if(data.code==1){
+			        parent.layer.msg('删除成功！', {icon: 1,time:2000,shade:0.2});
+			        location.reload(true);
+		        }else{
+			        parent.layer.msg('删除失败！', {icon: 2,time:3000,shade:0.2});
+		        }
+		    }
+		  );*/
+		  layer.close(index);
+	  });
+	}
+	
+	$('.delete').click(function(){
+			deletes();
+	});
+	
+	
+	/*$(".layui-table-box").find("[data-field='0']").addClass('layui-hide'); 
+	$('.delete').addClass('layui-btn-disabled');
+	$('.editor').click(function(){
+		$(this).hide();
+		$('.cancel').show();
+		$(".layui-table-box").find("[data-field='0']").removeClass('layui-hide');
+		$('.delete').removeClass('layui-btn-disabled');
+		isdelete = true;
+	});
+	$('.cancel').click(function(){
+		$(this).hide();
+		$('.editor').show();
+		$(".layui-table-box").find("[data-field='0']").addClass('layui-hide');
+		$('.delete').addClass('layui-btn-disabled');
+		isdelete = false;
+	});
+	*/
+});
+
+	
+
+
+$(function(){
+	
+	$('.select_state').hover(function(){
+		$('.select_state .down_list').stop();
+		$('.select_state .down_list').slideDown();
+	},function(){
+		$('.select_state .down_list').stop();
+		$('.select_state .down_list').slideUp();
+	});
+	
+	$('.select_state .down_list li').click(function(){
+		$('.select_state .select_text').text($(this).text());
+		$('.select_state .down_list').slideUp();
+	});
+	
+});
+</script>
+</html>

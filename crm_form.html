@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>发布列表>新增发布</title>
+	<!-- <link rel="stylesheet" type="text/css" href="css/crm_style.css"> -->
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="simditor/styles/simditor.css">
+	<link rel="stylesheet" type="text/css" href="css/crm_form.css">
+	<!-- <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_865677_cx0brj5f9v.css"> -->
+</head>
+<body style="background: rgba(0,0,0,.04);">
+	<!-- 弹窗框 -->
+	<div class="curtain"></div>
+	<div class="navbigbox">
+		<!-- 透明层 -->
+		<div class="curtainfff"></div>
+		<!-- 删除icon -->
+		<i class="thisclose cursor"><img src="images/icon/close.png"></i>
+		<div class="biaoqian">
+			<span>请选择标签</span>
+			<div class="clickthisbiaoqian">
+				<input class="inputing" type="text" name="" placeholder="输入关键词">
+				<i class="tijiao iconfont icon-fangdajing cursor"></i>
+				
+				<ul class="searchnav">
+					<li>1旅游-旅游产品开发/策划</li>
+					<li>2旅游-旅游产品开发/策划</li>
+					<li>3旅游-旅游产品开发/策划</li>
+					<li>4旅游-旅游产品开发/策划</li>
+					<li>5旅游-旅游产品开发/策划</li>
+					<li>6旅游-旅游产品开发/策划</li>
+					<li>7旅游-旅游产品开发/策划</li>
+					<li>8旅游-旅游产品开发/策划</li>
+					<li>9旅游-旅游产品开发/策划</li>
+					<li>10旅游-旅游产品开发/策划</li>
+					<li>8旅游-旅游产品开发/策划</li>
+					<li>9旅游-旅游产品开发/策划</li>
+					<li>10旅游-旅游产品开发/策划</li>
+				</ul>
+			</div>
+		</div>
+		<!--已选标签-->
+		<div class="selected">
+			<ul class="selectedul clear">
+				<span class="block45" style="height: 23px; line-height: 23px;">最多选择6个标签</span>
+			</ul>
+			<span class="ok-navbigbox">确定</span>
+		</div>
+		
+		<!--行业-->
+		<div class="hy">
+			<div class="hy-title">
+				<ul>
+					<li class="active">互联网IT</li>
+					<li>企业服务</li>
+					<li>生活服务</li>
+					<li>金融/保险</li>
+					<li>教育培训</li>
+					<li>电子商务</li>
+					<li>文化娱乐</li>
+					<li>咨询服务</li>
+					<li>医疗健康</li>
+					<li>汽车交通</li>
+					<li>文化娱乐</li>
+					<li>咨询服务</li>
+					<li>医疗健康</li>
+					<li>汽车交通</li>
+				</ul>
+			</div>
+			<div class="hy-lable">
+				<ul style="position: absolute;">
+					<li>
+						<div class="hy-lable-box">
+							<ul>
+								<li>网站建设</li>
+								<li>产品UI设计</li>
+								<li>数据服务</li>
+								<li>测试服务</li>
+								<li>安全服务</li>
+								<li>IT解决方案</li>
+								<li>安全服务</li>
+								<li>IT解决方案</li>
+							</ul>
+							<input class="add-lable-btn" type="text" name="" placeholder="添加标签">
+							<!-- <span class="add-lable-btn">添加标签</span> -->
+						</div>
+					</li>
+					<li>
+						<div class="hy-lable-box">
+							<ul>
+								<li>网站建设</li>
+								<li>产品UI设计</li>
+								<li>数据服务</li>
+								<li>测试服务</li>
+								<li>安全服务</li>
+								<li>IT解决方案</li>
+							</ul>
+							<!-- <span class="add-lable-btn">添加标签</span> -->
+							<input class="add-lable-btn" type="text" name="" placeholder="添加标签">
+						</div>
+					</li>
+					<li>
+						<div class="hy-lable-box">
+							<ul>
+								<li>网站建设</li>
+								<li>产品UI设计</li>
+								<li>数据服务</li>
+								<li>测试服务</li>
+								<li>安全服务</li>
+								<li>IT解决方案</li>
+							</ul>
+							<span class="add-lable-btn">添加标签</span>
+						</div>
+					</li>
+					<li>
+						<div class="hy-lable-box">
+							<ul>
+								<li>网站建设</li>
+								<li>产品UI设计</li>
+								<li>数据服务</li>
+								<li>测试服务</li>
+								<li>安全服务</li>
+								<li>IT解决方案</li>
+							</ul>
+							<span class="add-lable-btn">添加标签</span>
+						</div>
+					</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+					<li>啦啦啦</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<header>
+       
+	</header>
+	<main>
+	   <div class="viewdetailsbox">
+			<div class="box_top" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+				<h1>发布列表>新增发布</h1>
+			</div>
+			<div class="box_cent">
+				<h2 >发布信息</h2>
+				<div class="x-body layui-anim layui-anim-up"  >
+				<form>
+					<ul class="form_box1 mar clear">
+						<li>
+							<div><span style="color: #F52230;">*</span>发布类型</div>
+							<select class="send_type">
+								<option value="0">未选择</option>
+								<option value="1">123</option>
+								<option value="2">456</option>
+								<option value="3">789</option>
+								<option value="4">741</option>
+							</select>
+						</li>
+						<li>
+							<div><span style="color: #F52230;">*</span>选择标签</div>
+							<input type="text" name="" placeholder="请选择标签" style="display: none;position: absolute;">
+							<span class="simulationtext">请选择标签</span>
+							<p class="thisp1" style="color:red"></p>
+						</li>
+						<li style="margin-top:50px;">
+							<div><span style="color: #F52230;">*</span>服务区域</div>
+							<div class="fwqy"><span class="select_name">未选择</span>
+								<div class="fwqy_select_box">
+									<div class="city">
+										<ul>
+											<li class="active">北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+										</ul>
+									</div>
+									<div class="city_two">
+										<ul>
+											<li class="active">北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京0<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+										</ul>
+										<ul>
+											<li class="active">北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京1<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+											<li>北京<i class="iconfont icon-xiayiyeqianjinchakangengduo-copy"></i></li>
+										</ul>
+									</div>
+									<div class="county">
+										<ul>
+											<li class="active">北京</li>
+											<li>北京0</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+											<li>北京</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="form_box2">
+						<div><span style="color: #F52230;">*</span>输入标题</div>
+						<input class="crmformtitle" style="background:#26000000" type="text" name=""  placeholder="【广州乙租】">
+						<input class="crmformtitle" type="text" name="" maxlength="26" placeholder="请输入标题">
+						<p class="thisp2" style="color:red;padding-left: 120px;"></p>
+					</div>
+					<div class="form_box3" style="position: relative;">
+						<div style="margin-bottom: 8px;"><span style="color: #F52230;">*</span>补充描述</div>
+						<textarea id="editor" placeholder="需求详情描述" name="describe" class="textArea"></textarea>
+						<span class="fsize14 black45" style="position: absolute; bottom: 14px; right: 8px;">
+							<span class="textNum fsize14 black45" >0</span>/600&nbsp;&nbsp;
+						</span>
+						<p class="thisp3" style="color:red"></p>
+					</div>
+					<ul class="form_box5 form_box1 mar clear">
+						<li>
+							<div><span style="color: #F52230;">*</span>联系人</div>
+							<input class="contact" type="number" name="" placeholder="请输入手机号码">
+							<p class="thisp44" style="color:red"></p>
+						</li>
+						<li>
+							<div><span style="color: #F52230;">*</span>联系电话</div>
+							<input class="phone" type="number" name="" placeholder="请输入手机号码">
+							<p class="thisp4" style="color:red"></p>
+						</li>
+						<li>
+							<div><span style="color: #F52230;">*</span>职位</div>
+							<input class="contact" type="number" name="" placeholder="请填写联系人职位">
+							<p class="thisp44" style="color:red"></p>
+						</li>
+					</ul>
+					<ul class="form_box5 form_box1 mar clear">
+						<li>
+							<div>邮箱</div>
+							<input class="thisemail" type="email" name="" placeholder="请输入邮箱">
+							<p class="thisp6" style="color:red"></p>
+						</li>
+						<li>
+							<div>座机</div>
+							<input class="telnumber" type="" name="" placeholder="请输入电话">
+							<p class="thisp5" style="color:red"></p>
+						</li>
+						<li class="radio_box">
+							<span>
+								<i style="background: url(images/icon/check.png) no-repeat; display: none;"></i>
+								<i style="background: url(images/icon/checked.png) no-repeat;"></i>
+								园区发布
+							</span>
+							<span>
+								<i style="background: url(images/icon/check.png) no-repeat;"></i>
+								<i style="background: url(images/icon/checked.png) no-repeat; display: none;"></i>
+								公开发布
+							</span>
+							<div class="iconfont icon-wenhao-fill tishi" style="color: rgba(0,0,0,0.35); position: relative; cursor: pointer;">
+								<span>
+									园区发布：仅园区用户可见</br>
+									公开发布：平台用户可见
+								</span>
+							</div>
+						</li>
+					</ul>
+					<div class="form_box4">
+						<span class="clickformbox4">发布信息</span>
+					</div>
+				</form>
+			</div>  
+        </div> 
+	</main>
+
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- <script type="text/javascript" src="js/crm-style.js" ></script> -->
+<script type="text/javascript" src="simditor/scripts/module.js"></script>
+<script type="text/javascript" src="simditor/scripts/uploader.js"></script>
+<script type="text/javascript" src="simditor/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="simditor/scripts/simditor.js"></script>
+<script type="text/javascript" src="js/crm_form.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var ii=0;
+		var typearr=[];//已选择的标签数组
+		var oldtypearr;
+		$('.inputing').keydown(function (e) {
+	        var e = e || window.event, ec = e.keyCode || e.which;
+	        var nulls = /^[\s]*$/;
+	        if (!e.ctrlKey && 13 == ec) {
+            	$('.tijiao').click();//监控回车键 调用tijiao方法
+            	return false;
+        	}
+    	})
+		$('.tijiao').click(function(){
+			// 弹窗顶部的搜索框 点击提交的时候 这里写ajax方法
+			
+		})
+		// 动态添加和删除标签
+		// 输入框输入结束回车提交和失去焦点提交方法
+		$('.add-lable-btn').keydown(function(e) {
+			var f = e || window.event, ec = e.keyCode || e.which;
+	        var nulls = /^[\s]*$/;
+	        if (!f.ctrlKey && 13 == ec) {
+            	thisfocunsout();
+            	return false;
+        	}
+		});
+		$('.hy-lable>ul>li').focusout(function(){
+			thisfocunsout();//失去焦点就提交
+		})
+		function thisfocunsout(){
+			let thisval = $('.add-lable-btn').val();
+			console.log(thisval);
+			let j = $(this).attr('id');
+			if (thisval == '') {
+				//判断不为空
+			}else if(typearr.length == 6){
+				//判断数组长度为6的时候
+			}else{
+				typearr.push({'thistext':thisval,'thisid':j});
+				ergodicarr();
+				oldtypearr = typearr;
+			}
+			$('.add-lable-btn').val('');//方法结束之后清空输入框
+		}
+		// 点击添加当前标签的方法
+		$('.hy-lable-box ul li').click(function(){
+			let i = $(this).text();
+			let j = $(this).attr('id');
+			if(typearr.length == 6){
+
+			}else{
+				typearr.push({'thistext':i,'thisid':j});
+				ergodicarr();
+				oldtypearr = typearr;
+			}
+		})
+		//遍历数组并打印到页面上  还要加上一个新旧数组比对的方法 
+		function ergodicarr(){
+			$('.selectedul li').remove();
+			for(let iii = 0 ; iii<typearr.length;iii++){
+				$('.selectedul').append('<li title="点击删除">'+typearr[iii].thistext+'</li>')
+			}
+		}
+		// 点击删除对应数组下标的方法
+		// 重构remove方法
+		Array.prototype.removearr=function(dx){
+			if(isNaN(dx)||dx>this.length){
+				return false;
+			}
+			for(let i=0,n=0;i<this.length;i++){
+				if(this[i]!=this[dx]){
+					this[n++]=this[i]
+				}
+			}
+			this.length-=1
+		　}
+		$('.selectedul').on('click','li',function(){
+			let i = $(this).index();
+			typearr.removearr(i-1);
+			console.log(typearr);
+			$('.selectedul li:eq('+(i-1)+')').remove();
+		})
+
+
+	})
+</script>
+</html>

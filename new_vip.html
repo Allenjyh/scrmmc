@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>vp</title>
+    <link rel="stylesheet" href="js/css/layui.css">
+    <link rel="stylesheet" href="css/scrmmcStyle.css">
+    <link rel="stylesheet" href="css/crm_style.css">
+    <link rel="stylesheet" href="css/new_error.css">
+  </head>
+  <body>
+      <h2 class="arherh2">信息错误</h2>
+      <div class="arherbox">
+        <span class="clickspan">会员</span>
+        <span>列表显示</span>
+        <span>验证码参数</span>
+        <span>首页内容</span>
+        <span>其他</span>
+      </div>
+      <ul class="managebox">
+        <li>
+          <div class="titlebox">
+    				<div class="box_tit">用户错误</div>
+    				<div>
+    					<a href="new_vip_upload.html" class="box_new qiniu_btn3">新增</a>
+    					<span class="box_del qiniu_btn4">删除</span>
+    				</div>
+    			</div>
+    			<table class="layui-hide" id="test" lay-filter="test" lay-skin='line'></table>
+        </li>
+      </ul>
+  </body>
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/new_error.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+  <script type="text/javascript" src="js/layui.all.js" ></script>
+  <script type="text/javascript">
+  $(function(){
+  	$('.arherbox').on('click','span',function(){
+  		let i = $(this).index();
+  		$('.arherbox span').removeClass('clickspan');
+  		$(this).addClass('clickspan');
+  		if(i == 0){
+  			// tableurl(); ajax接口
+  		}else if(i == 1){
+  			// tableurl(); ajax接口
+  		}else if(i == 2){
+  			// tableurl(); ajax接口
+  		}else if(i == 3){
+  			// tableurl(); ajax接口
+  		}
+  	})
+
+  	var ids = [];
+
+  	tableurl = function(thisurl,tabletitle){
+  		$('.box_tit').text(tabletitle);
+  		layui.use(['table','form','laydate'], function(){
+  				var table = layui.table
+  			  	,form = layui.form
+  			  	,laydate = layui.laydate
+  			  	,laypage = layui.laypage;
+  				table.render({ //服务器相关
+  				    elem: '#test'
+  				    ,skin:'line'
+              ,even: true //开启隔行背景
+  			//	  	,url:thisurl //ajax路径
+  					,data:[{
+  						"id":"1001",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1002",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1003",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1004",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1005",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1006",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1007",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1008",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1009",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1010",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1011",
+  						"whereZome": "广贸商务中心",
+  					},{
+  						"id":"1012",
+  						"whereZome": "广贸商务中心",
+  					}]
+  			    ,title: '用户数据表'
+  			    ,cellMinWidth: 70
+  				,height: 'full-80'
+  			    ,cols: [[
+  			      {type: 'checkbox', width:'4%'}
+  			      ,{align: 'center',field:'id',title:"ID", width:'48%'}
+  			      ,{align: 'center',field:'whereZome', title:'模板说明', width:'48%'}
+  			    ]]
+  				,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+  				    layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+  				    //,curr: 5 //设定初始在第 5 页
+  				    ,limit: 6
+  				    ,limits: [6,10,20,30,40,50,60,70,80,90,100]
+  				    ,groups: 10 //只显示 1 个连续页码
+  				    ,first: false //不显示首页
+  				    ,last: false //不显示尾页
+  				}
+  			    ,done: function(res, curr, count) { //表格数据加载完后的事件
+  				    // console.log(res);
+  				    //得到当前页码
+  				    // console.log(curr);
+  				    //得到数据总量
+  				    // console.log(count);
+  					}
+  			  });
+  		});
+  	}
+  	tableurl();
+  })
+
+  	function deletes(){
+  		var checkStatus = table.checkStatus('test1');
+  		if(checkStatus.data.length==0){
+  			parent.layer.msg('请先选择要删除的数据行！', {icon: 2});
+  			return ;
+  		}
+  		ids = [];
+  		for(var i=0;i<checkStatus.data.length;i++){
+  			ids.push(checkStatus.data[i].id);
+  		}
+  		layer.confirm('确定删除选中的'+ids.length+'行数据吗', function(index){
+  			parent.layer.msg('删除中...', {icon: 16,shade: 0.3,time:1000});
+  			for (let i = 0; i < ids.length; i++) {
+           $("div[data-id='" + ids[i] + "']").parent().parent().parent().remove();
+        }
+        	ose(index);
+  	  });
+  	}
+
+  	$('.box_del').click(function(){
+  			deletes();
+  	});
+
+  </script>
+<script type="text/javascript">
+  $(function(){
+    $('tbody').on('click','tr',function(){
+      let i = $(this).attr('data-index');
+      console.log(i);
+      let idtext = $('tbody tr[data-index="'+i+'"] td[data-key="1-0-1"]').text();
+      let nametext = $('tbody tr[data-index="'+i+'"] td[data-key="1-0-2"]').text();
+      console.log(idtext +','+ nametext);
+      layer.prompt({title: '是否要修改ID为'+idtext+'的值'},function(val, index){
+        // ajax 上传 idtext val 两个值
+        // $.ajax({
+        //  url: '',
+        //  type: 'GET/POST',
+        //  dataType: 'json',
+        //  data: {param1: 'value1'},
+        // })
+        layer.msg('得到了'+val);
+      });
+    })
+  })
+</script>
+</html>

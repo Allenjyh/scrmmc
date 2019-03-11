@@ -1,0 +1,55 @@
+body{
+	padding:40px;
+}
+th,td{
+	border:none!important;
+}
+.arherh2{
+	font-size: 32px;
+	color: rgba(0,0,0,.85);
+	margin-bottom: 40px;
+}
+.arherbox{
+	width: 100%;
+	border-bottom: 1px solid #1A8CFF;
+}
+.arherbox span{
+	cursor: pointer;
+	display: inline-block;
+	padding: 8px 20px;
+	color: rgba(0,0,0,.85);
+}
+.arherbox .clickspan{
+	color: #fff;
+	background: #1A8CFF;
+}
+.managebox li{
+	margin-top: 48px;
+	display: none;
+}
+.managebox li:nth-of-type(1){
+	display: block;
+}
+.titlebox{
+	margin-top: 48px;
+	display: flex;
+	justify-content:space-between;
+}
+.box_tit{
+	font-size: 32px;
+	color: rgba(0,0,0,.85);
+}
+.box_new,.box_del{
+	border-radius: 4px;
+	padding: 8px 24px;
+	cursor: pointer;
+	font-size: 18px;
+}
+.box_new{
+	border:1px solid #1a8cff;
+	color: #1a8cff; 
+}
+.box_del{
+	border:1px solid #FF1E1E;
+	color: #FF1E1E; 
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>公告管理/发布</title>
+	<link rel="stylesheet" type="text/css" href="css/crm_style.css">
+	<link rel="stylesheet" type="text/css" href="simditor/styles/simditor.css">
+	<link rel="stylesheet" type="text/css" href="css/new_Notice.css">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="simditor/scripts/module.js"></script>
+	<script type="text/javascript" src="simditor/scripts/uploader.js"></script>
+	<script type="text/javascript" src="simditor/scripts/hotkeys.js"></script>
+	<script type="text/javascript" src="simditor/scripts/simditor.js"></script>
+	<script type="text/javascript" src="js/new_Notice.js"></script>
+</head>
+<body>
+	<h3 class="notice_h3">公告管理>发布</h3>
+	<p class="notice_p">标题</p>
+	<p class="notice_cent">
+		<input type="text" name="">
+        <input type="text" class="layui-input pstick" id="test5" placeholder="选择时间">
+	</p>
+	<p class="notice_p">添加上传</p>
+	<div class="imgbox">
+		
+	</div>
+	<div class="textareabox">
+		<textarea id="editor" placeholder="需求详情描述" name="describe" class="textArea"></textarea>
+	</div>
+	<div class="btnbox">
+		<span>取消</span>
+		<span>发布</span>
+	</div>
+</body>
+<script type="text/javascript" src="js/layui.js"></script>
+<script type="text/javascript">
+	layui.use('laydate', function(){
+  		var laydate = layui.laydate;
+	  	//日期时间选择器
+ 	 	laydate.render({
+	    	elem: '#test5'
+	   	 	,type: 'datetime'
+	  	});
+	});
+</script>
+</html>

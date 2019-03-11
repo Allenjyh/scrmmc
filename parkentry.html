@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>园区申请>查看详情</title>
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/viewdeails.css">
+	<link rel="stylesheet" type="text/css" href="css/companydetails.css">
+</head>
+<body>
+	<div class="viewdetailsbox">
+		<div class="box_top">
+			<h1>园区申请>查看详情</h1>
+			<div class="top_btnbox">
+				<span class="btnbox_tiqu ">提取信息</span>
+				<span class="btnbox_true">通过</span>
+				<div class="btnbox_false" >不通过 <i class="sanicon"></i>
+					<ul class="btnbox_ul">
+						<li class="btnbox_li1">标题不符</li>
+						<li class="btnbox_li2">描述不符</li>
+						<li class="btnbox_li3">标题与描述不符</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="box_cent">
+			<h2 style="color:#198cff;margin-top: 40px;">认证信息</h2>
+			<ul class="content_ul clear">
+				<li>账号：<span>A123456</span></li>
+				<li>状态：
+					<span>等待状态</span>
+				    <p class="thisp1" style="color:red;"></p>
+				</li>
+				<li>申请日期：<span>A123456</span></li>
+			</ul>
+			<h2 style="color:#198cff;margin-top: 40px;">身份认证</h2>
+			<ul class="business_ul clear">
+				<li class="up_front">
+					<p> 法人身份证正面</p>
+					<div class=" up_front" id="test10" >
+						<img class="img1" src="images/up_front.png" alt="up_front.png" title="up_front2x.png"/>
+					</div> 
+					<div id="displayImg1" class="hide" style="display: none;"><img src="images/up_front2x.png"></div>
+				</li>
+				<li>
+					<p> 法人身份证反面</p>
+					<div class=" up_reverse" id="test11" >
+						<img src="images/up_reverse2x.png" alt=""  class="img2">
+					</div>
+					<div id="displayImg2" class="hide" style="display: none;"><img src="images/up_reverse2x.png"></div>
+				</li>
+			</ul>
+			<h2 style="color:#198cff;margin-top: 40px;">企业认证</h2>
+			<ul class="business_ul clear">
+					<li class="up_front">
+						<p> 营业执照</p>
+						<div class=" up_business" id="test12" >
+							<img  class="img3" src="images/up_business2x.png" alt="">
+						</div>
+						<div id="displayImg3" class="hide" style="display: none;"><img src="images/up_business2x.png"></div>
+					</li>
+			</ul>
+			<ul class="parkentry_ul clear">
+					<li>
+						<p><span style="color: #F52230;">*</span>公司全称</p>
+						<input class="park1" type="text" name="">
+					</li>
+					<li>
+						<p><span style="color: #F52230;">*</span>税号（统一社会信用代码）</p>
+						<input class="park2" type="text" name="">
+					</li>
+					<li>
+						<p><span style="color: #F52230;">*</span>法人名称</p>
+						<input class="park3" type="text" name="">
+					</li>
+					<li>
+						<p><span style="color: #F52230;">*</span>注册地址</p>
+						<input class="park4" type="text" name="">
+					</li>
+				</ul>
+			<h2 style="color:#198cff;margin-top: 40px;">公司简介</h2>
+			<div class="company_box">
+				<div class="company_img">
+					<img src="images/minhead.jpeg">
+				</div>
+			</div>
+			<ul class="content_ul clear">
+				<li>公司阶段：<span>A123456</span></li>
+				<li>所在行业：<span>A123456</span></li>
+				<li>所在区域：<span>A123456</span></li>
+				<li>公司规模：<span>A123456</span></li>
+				<li>公司简称：<span>A123456</span></li>
+				<li>公司编号：<span>A123456</span></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="lib/layui/layui.js"></script>
+<!-- <script type="text/javascript" src="js/parkentry.js"></script> -->
+<script type="text/javascript">
+	//上传照片
+	// layui.use('upload', function(){
+	// 	var $ = layui.jquery
+	// 	  ,upload = layui.upload;
+	// 	  //拖拽上传
+	// 	upload.render({
+	// 	  elem: '#test10,#test11,#test12'
+	// 	  ,url: '/upload/'
+	// 	  ,done: function(res){
+	// 	    console.log(res)
+	// 	  }
+	// 	}); 
+   // })
+  //点击图片放大    
+   layui.use('layer', function(){
+		var layer = layui.layer;
+		$('.img1').click(function(){
+			amplificationImg(1);
+		})
+		$('.img2').click(function(){
+			amplificationImg(2);
+		})
+		$('.img3').click(function(){
+			amplificationImg(3);
+		})
+		function amplificationImg(i) {
+			layer.open({
+				type: 1,
+				title: false,
+				closeBtn: 0,
+				maxWidth:344,
+				maxheight:420,
+				area:'auto', //['500px', '300px'],
+				skin: 'layui-layer-nobg', //没有背景色
+				shadeClose: true,
+				content: $('#displayImg'+i)
+				});
+		}
+	});  
+	//hover不通过下拉
+ 	$(function(){
+	$('.btnbox_false').hover(function() {
+		$('.btnbox_ul').stop();
+		$('.btnbox_ul').slideDown();
+	},function(){
+		$('.btnbox_ul').stop();
+		$('.btnbox_ul').slideUp();
+	});
+	$('.btnbox_ul').on('click','li',function(){
+		$('.btnbox_ul').hide();
+		let ii = $(this).index();
+		switch(ii){
+			case 1: thistype(ii);
+			break;
+			case 2: thistype(ii);
+			break;
+			case 3: thistype(ii);
+			break;
+		}
+	})
+	function thistype(number){
+		$.ajax({
+		   type: "GET",
+		   url: "",
+		   data:{type:number},
+		   success: function(msg){
+		     alert( "Data Saved: " + msg );
+		   }
+		});
+	}
+  })
+
+</script>
+</html>

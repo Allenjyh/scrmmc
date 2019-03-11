@@ -1,0 +1,56 @@
+body{
+	padding: 40px;
+}
+h2,h2 > a{
+	font-size: 32px;
+	color:rgba(0,0,0,.85);
+}
+h2{
+	font-weight: 400;
+	margin-bottom: 60px;
+}
+h3{
+	font-weight: 400;
+	font-size: 18px;
+	color: rgba(0,0,0,.45);
+	margin-top:40px; 
+	margin-bottom: 8px;
+}
+.qrupload img{
+	width: 104px;
+	height: 104px;
+}
+.qrupload p{
+	margin-top: 12px;
+	margin-bottom: 40px;
+	font-size: 14px;
+	color:rgba(0,0,0,.45);
+}
+.input1,.input2,.input3,.layui-form input{
+	width: 598px;
+	height: 38px;
+	border:1px solid rgba(0,0,0,.15);
+	border-radius: 2px;
+}
+.layui-form-select{
+	width: 600px;
+	height: 40px;
+}
+.adver_btn{
+	margin-top: 38px;
+}
+.btn_false,.btn_true{
+	padding: 8px 24px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.btn_false{
+	border:1px solid rgba(0,0,0,.15);
+	color: rgba(0,0,0,.45);
+}
+.btn_true{
+	border:1px solid #1a8cff;
+	background: #1a8cff;
+	color: #fff;
+	margin-left: 20px;
+}

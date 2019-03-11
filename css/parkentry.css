@@ -1,0 +1,92 @@
+.clear:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.parkentry_box{
+	margin: 28px 40px;
+}
+.parkentry_top h1{
+	display: inline-block;
+}
+.parkentry_btn{
+	float: right;
+	width: 200px;
+	height: 40px;
+}
+.parkentry_true,.parkentry_false{
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 4px;
+	background: #fff;
+	display: inline-block;
+	cursor: pointer;
+}
+.parkentry_true{
+	color: #198cff;
+	margin-right: 20px;
+	border:1px solid #198cff;
+}
+.parkentry_false{
+	color: #FF3355;
+	border: 1px solid #FF3355;
+}
+.box_h2{
+	color: #198cff;
+	margin-top: 40px;
+}
+.box_p{
+	margin-top: 20px;
+	margin-bottom: 8px;
+	color: rgba(0,0,0,.45);
+	font-size: 16px;
+}
+.box_p2{
+	margin-top: 12px;
+	font-size: 12px;
+	color: rgba(0,0,0,0.45);
+}
+.parkentry_ul{
+	width: 100%;
+	margin: 20px 0 0 0;
+}
+.parkentry_ul li{
+	width: 33%;
+	margin-bottom: 10px;
+	float: left;
+}
+.parkentry_ul li p{
+	font-size: 16px;
+	margin-bottom: 6px;
+	color: rgba(0,0,0,.45);
+}
+.parkentry_ul li input{
+	width: 348px;
+	padding-left: 10px;
+	height: 38px;
+	line-height: 38px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,.15);
+}
+.thisselect{
+	width: 360px;
+	height: 40px;
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: 4px;
+}
+.thistextarea{
+	width: 1180px;
+	height: 340px;
+	border: 1px solid rgba(0,0,0,0.15);
+	border-radius: 4px;
+	resize: none;
+	padding: 10px;
+}
+
+/*去掉谷歌，火狐下的type="number"中的右边箭头*/
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+   -webkit-appearance: none !important;
+}
+input[type="number"]{-moz-appearance:textfield;}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>系统配置</title>
+	<link rel="stylesheet" href="js/css/layui.css" />
+  	<link rel="stylesheet" href="js/css/layui.mobile.css" />
+	<link rel="stylesheet" href="css/crm_style.css">
+	<link rel="stylesheet" type="text/css" href="css/new_qiniuyun.css">
+	<link rel="stylesheet" type="text/css" href="css/scrmmcStyle.css">
+</head>
+<body>
+	<h2 class="arherh2">七牛云配置</h2>
+	<div class="arherbox">
+		<span class="clickspan">七牛云KEY</span>
+		<span>云片存储空间</span>
+	</div>
+	<ul class="managebox">
+		<!-- 七牛 -->
+		<li>
+			<div class="qiniubox">
+				<p><span class="keystyle">AccessKey七牛公钥： </span><span class="thekey thiskey1">XXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
+				<div class="floatbox thisbox1">
+					<div class="float_title">修改公钥</div>
+					<input class="f_input1" type="text" name="">
+					<div class="btn_box">
+						<span class="btn_false">取消</span>
+						<span class="btn_true">保存</span>
+					</div>
+				</div>
+			</div>
+			<div class="qiniubox">
+				<p><span class="keystyle">SecretKey七牛私钥： </span><span class="thekey thiskey2">XXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
+				<div class="floatbox thisbox2">
+					<div class="float_title">修改私钥</div>
+					<input class="f_input2" type="text" name="">
+					<div class="btn_box">
+						<span class="btn_false">取消</span>
+						<span class="btn_true">保存</span>
+					</div>
+				</div>
+			</div>
+			<div class="titlebox">
+				<div class="box_tit">内容列表</div>
+				<div>
+					<a href="new_qiniuupload.html" class="box_new qiniu_btn1">新增</a>
+					<span class="box_del qiniu_btn2">删除</span>
+				</div>
+			</div>
+			<table class="layui-hide" id="test1" lay-filter="test1" lay-skin='line'></table>
+		</li>
+		<!-- 云片 -->
+		<li>
+			<div class="qiniubox">
+				<p><span class="keystyle">APP_KEY： </span><span class="thekey thiskey3">XXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
+				<div class="floatbox thisbox3">
+					<div class="float_title">修改APP_KEY</div>
+					<input class="f_input3" type="text" name="">
+					<div class="btn_box">
+						<span class="btn_false">取消</span>
+						<span class="btn_true">保存</span>
+					</div>
+				</div>
+			</div>
+			<div class="titlebox">
+				<div class="box_tit">内容列表</div>
+				<div>
+					<a href="new_yunpianupload.html" class="box_new qiniu_btn3">新增</a>
+					<span class="box_del qiniu_btn4">删除</span>
+				</div>
+			</div>
+			<table class="layui-hide" id="test2" lay-filter="test2" lay-skin='line2'></table>
+		</li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/new_qiniuyun.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+<script type="text/javascript" src="js/layui.all.js" ></script>
+<script type="text/javascript">
+var ids = [];
+layui.use(['table','form','laydate'], function(){
+	var table = layui.table
+  	,form = layui.form
+  	,laydate = layui.laydate
+  	,laypage = layui.laypage;
+	table.render({
+	    elem: '#test1'
+	    ,skin:'line'
+	    ,toolbar: '#toolbarDemo'
+	    ,even: true //开启隔行背景
+//	  	,url:'new_file.json' //ajax路径
+		,data:[{  
+			"id":"1001",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+		},{  
+			"id":"1002",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1003",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1004",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1005",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1006",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1007",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1008",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1009",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1010",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1011",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		},{  
+			"id":"1012",
+			"whereZome": "广贸商务中心",
+			"contact": "186-0752-4585",
+			"accouttype":"有",
+			"date": "2019/01/01"
+			 
+		}]
+    ,title: '用户数据表'
+    ,cellMinWidth: 70
+	,height: 'full-80'
+    ,cols: [[
+      {type: 'checkbox', width:'3%'}
+      ,{align: 'center',field:'id',title:"ID", width:'10%'}
+      ,{align: 'center',field:'contact', title:'空间名', width:'30%'}
+      ,{align: 'center',field:'accouttype',title:'域名',width:'30%'}
+      ,{align: 'center',field:'date', title:'公开/私有', width:'30%'}
+    ]]
+	,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+	    layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+	    //,curr: 5 //设定初始在第 5 页
+	    ,limit: 6
+	    ,limits: [6,10,20,30,40,50,60,70,80,90,100]
+	    ,groups: 10 //只显示 1 个连续页码
+	    ,first: false //不显示首页
+	    ,last: false //不显示尾页
+	}
+    ,done: function(res, curr, count) { //表格数据加载完后的事件
+	    console.log(res);
+	    //得到当前页码
+	    console.log(curr);
+	    //得到数据总量
+	    console.log(count);
+		}
+  });
+	table.render({
+	    elem: '#test2'
+	    ,skin:'line2'
+	    ,even: true //开启隔行背景
+//	  	,url:'new_file.json' //ajax路径
+		,data:[{  
+			"id":"1001",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1002",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1003",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1004",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1005",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1006",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1007",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1008",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1009",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1010",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1011",
+			"whereZome": "广贸商务中心",
+		},{  
+			"id":"1012",
+			"whereZome": "广贸商务中心",
+		}]
+    ,title: '用户数据表'
+    ,cellMinWidth: 70
+	,height: 'full-80'
+    ,cols: [[
+      {type: 'checkbox', width:'4%'}
+      ,{align: 'center',field:'whereZome',title:"模板说明", width:'48%'}
+      ,{align: 'center',field:'id', title:'ID', width:'48%'}
+    ]]
+	,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+	    layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+	    //,curr: 5 //设定初始在第 5 页
+	    ,limit: 6
+	    ,limits: [6,10,20,30,40,50,60,70,80,90,100]
+	    ,groups: 10 //只显示 1 个连续页码
+	    ,first: false //不显示首页
+	    ,last: false //不显示尾页
+	}
+    ,done: function(res, curr, count) { //表格数据加载完后的事件
+	    console.log(res);
+	    //得到当前页码
+	    console.log(curr);
+	    //得到数据总量
+	    console.log(count);
+		}
+  });
+
+  
+  //日期范围
+  laydate.render({
+    elem: '#date_text'
+    ,range: true
+    ,change: function(value, date, endDate){
+	    console.log(value); //得到日期生成的值，如：2017-08-18
+	  }
+  });
+  
+	function deletes(){
+		var checkStatus = table.checkStatus('test1');
+		if(checkStatus.data.length==0){
+			parent.layer.msg('请先选择要删除的数据行！', {icon: 2});
+			return ;
+		}
+		ids = [];
+		for(var i=0;i<checkStatus.data.length;i++){
+			ids.push(checkStatus.data[i].id);
+		}
+		layer.confirm('确定删除选中的'+ids.length+'行数据吗', function(index){
+			parent.layer.msg('删除中...', {icon: 16,shade: 0.3,time:1000});
+			for (let i = 0; i < ids.length; i++) {
+         $("div[data-id='" + ids[i] + "']").parent().parent().parent().remove();
+      }
+      	ose(index);
+	  });
+	}
+	
+	$('.box_del').click(function(){
+			deletes();
+	});
+});
+
+</script>
+<script type="text/javascript">
+	$(function(){
+		$('tbody').on('click','tr',function(){
+		 	let i = $(this).attr('data-index');
+		 	console.log(i);
+		 	let idtext = $('tbody tr[data-index="'+i+'"] td[data-key="1-0-1"]').text();
+			let nametext = $('tbody tr[data-index="'+i+'"] td[data-key="1-0-2"]').text();
+			layer.prompt({title: '是否要修改ID为'+idtext+'的值'},function(val, index){
+				// ajax 上传 idtext val 两个值
+				// $.ajax({
+				// 	url: '',
+				// 	type: 'GET/POST',
+				// 	dataType: 'json',
+				// 	data: {param1: 'value1'},
+				// })
+				
+			});
+		})
+	})
+</script>
+</html>

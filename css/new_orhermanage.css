@@ -1,0 +1,39 @@
+body{
+	padding:40px;
+}
+.arherh2{
+	font-size: 32px;
+	color: rgba(0,0,0,.85);
+	margin-bottom: 40px;
+}
+.arherbox{
+	width: 100%;
+	border-bottom: 1px solid #1A8CFF;
+}
+.arherbox span{
+	cursor: pointer;
+	display: inline-block;
+	padding: 8px 20px;
+	color: rgba(0,0,0,.85);
+}
+.arherbox .clickspan{
+	color: #fff;
+	background: #1A8CFF;
+}
+.managebox li:nth-of-type(1){
+	margin-top: 94px;
+}
+.managebox li:nth-of-type(2){
+	margin-top: 40px;
+	display: none;
+}
+.logobox img{
+	width: 104px;
+	height: 104px;
+	margin-right: 16px;
+}
+.logoboxp{
+	margin-top: 12px;
+	font-size: 14px;
+	color: rgba(0,0,0,.45);
+}

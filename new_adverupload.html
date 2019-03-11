@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>上传二维码</title>
+	<link rel="stylesheet" type="text/css" href="css/crm_style.css">
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/new_adverupload.css">
+</head>
+<body>
+	<h2><a href="#">其他管理</a> > 二维码 > 上传</h2>
+	<div class="qrupload">
+		<img src="images/icon/Group.png">	
+		<p>最大文件不超过2Mb，只支持.jpg .png 格式。</p>	
+	</div>
+	<form class="layui-form">
+		<h3>备注信息</h3>
+		<input class="input1" type="text" name="">
+		<h3>备注信息</h3>
+		<select class="input2" name="interest" lay-filter="aihao">
+	        <option value=""></option>
+	        <option value="0">写作</option>
+	        <option value="1">阅读</option>
+	        <option value="2">游戏</option>
+	        <option value="3">音乐</option>
+	        <option value="4">旅行</option>
+	    </select>
+		<h3>备注信息</h3>
+		<select class="input3" name="interest" lay-filter="aihao">
+	        <option value=""></option>
+	        <option value="0">写作</option>
+	        <option value="1">阅读</option>
+	        <option value="2">游戏</option>
+	        <option value="3">音乐</option>
+	        <option value="4">旅行</option>
+	    </select>
+	</form>
+	<div class="adver_btn">
+		<span class="btn_false">取消上传</span>
+		<span class="btn_true">上传</span>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/layui.js"></script>
+	<script type="text/javascript" src="js/qiniu/qiniu.min.js"></script>
+	<script type="text/javascript" src="js/qiniu/upload_new.js"></script>
+	<script type="text/javascript" src="js/new_adverupload.js"></script>
+</body>
+<script type="text/javascript">
+	layui.use('form', function(){
+	  var form = layui.form;
+	})
+</script>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/crm_style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootpage.css">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/bootpage.js"></script>
+	<script type="text/javascript" src="js/clamp.js" ></script>
+	<script type="text/javascript" src="js/crm-style.js" ></script>
+	<!-- 导入七牛云 -->、
+	<script type="text/javascript" src="js/qiniu/qiniu.min.js"></script>
+	<script type="text/javascript" src="js/qiniu/upload_new.js"></script>
+</head>
+<!-- 企业录入 -->
+<body>
+	<main>
+		<p class="toptitle">企业账号 > 企业录入</p>
+		<div class="bigboxpage">
+			<div class="boxpage2">
+				<!-- 身份认证 -->
+				<div class="fbox_3">
+					<span class="fbox_span">身份认证</span>
+					<div class="fbox_div clear">
+						<!-- 身份证正面 -->
+						<div class="SFZzm">
+							<span><i class="redStars">* </i>上传身份证正面</span>
+							<ul class="clear">
+								<input class="filesfz1" type="file" accept="image/*" name="" style="display: none;position: absolute;top: -9999px;">
+								<textarea class="sfzbase1" style="display: none;position: absolute;top: -9999px;"></textarea>
+								<li><img class="shangchuan1" src="images/icon/Group1.png"></li>
+								<li><img src="images/icon/ID_positive1.png"></li>
+							</ul>
+							<p>最大文件不超过2Mb，只支持.jpg .png 格式。</p>
+						</div>
+						<!-- 身份证反面 -->
+						<div class="SFZfm">
+							<span><i class="redStars">* </i>上传身份证反面</span>
+							<ul class="clear">
+								<input class="filesfz2" type="file" accept="image/*" name="" style="display: none;position: absolute;top: -9999px;">
+								<textarea class="sfzbase2" style="display: none;position: absolute;top: -9999px;"></textarea>
+								<li><img class="shangchuan2" src="images/icon/Group1.png"></li>
+								<li><img src="images/icon/ID_opposite1.png"></li>
+							</ul>
+							<p>最大文件不超过2Mb，只支持.jpg .png 格式。</p>
+						</div>
+					</div>
+				</div>
+				<!-- 后添加新盒子  base64格式的图片在textarea里面-->
+				<div class="fbox_4">
+					<span class="fbox_span">企业认证</span>
+					<div class="fbox_4_box">
+						<span><i class="redStars">* </i>上传营业执照</span>
+    					<ul class="clear">
+							<input class="filesfz3" type="file" accept="image/*" name="" style="display: none;position: absolute;top: -9999px;">
+							<textarea class="sfzbase3" style="display: none;position: absolute;top: -9999px;"></textarea>
+							<li><img class="shangchuan3" src="images/icon/Group2.png"></li>
+							<li><img src="images/icon/ID_license.png"></li>
+						</ul>
+						<p>最大文件不超过2Mb，只支持.jpg .png 格式。</p>
+					</div>
+				</div>
+				<ul class="fbox_big_ul clear">
+					<li>
+						<div class="fbox_3_txt"><i class="redStars">* </i>公司全称</div>
+						<input class="fbox_3_int fbox3_cent1" type="text" name="" placeholder="">
+					</li>
+					<li>
+						<div class="fbox_3_txt"><i class="redStars">* </i>税号（统一社会信用代码）</div>
+						<input class="fbox_3_int fbox3_cent2" type="text" name="" placeholder="">
+					</li>
+					<li>
+						<div class="fbox_3_txt"><i class="redStars">* </i>法人名称</div>
+						<input class="fbox_3_int fbox3_cent3" type="text" name="" placeholder="">
+					</li>
+					<li>
+						<div class="fbox_3_txt"><i class="redStars">* </i>注册地址</div>
+						<input class="fbox_3_int fbox3_cent4" type="text" name="" placeholder="">
+					</li>
+				</ul>
+			</div>
+			<div class="boxpage3">
+				<div class="fbox_1">
+					<span class="fbox_span">基本信息</span>
+					<div class="fbox_div">
+						<span class="fbox_div_text1"><i class="redStars">* </i>公司LOGO</span>
+						<ul class="fbox1_logo clear">
+                            <input id="filesfz4" type="file" accept="image/*" name="" style="display: none;position: absolute;top: -9999px;">
+                            <li><img id="shangchuan4" src="images/icon/Group.png"></li>
+                        </ul>
+		                <span class="fbox_div_text2">最大文件不超过2Mb，只支持.jpg .png 格式。</span>
+		                <ul class="fbox_1_ul clear">
+		                	<li>
+		                		<p><i class="redStars">* </i>公司阶段</p>
+								<select id="volvo1">
+		                			<option value="国有企业">国有企业</option>
+									<option value="集体企业">集体企业</option>
+									<option value="联营企业">联营企业</option>
+									<option value="股份合作制">股份合作制</option>
+									<option value="个体户">个体户</option>
+									<option value="中外合作企业">中外合作企业</option>
+									<option value="中外合资企业">中外合资企业</option>
+									<option value="外商独资企业">外商独资企业</option>
+									<option value="私营企业">私营企业</option>
+									<option value="其他企业">其他企业</option>
+		                		</select>
+		                	</li>
+		                	<li>
+		                		<p><i class="redStars">* </i>人员规模</p>
+		                		<select id="volvo2">
+		                			<option value="不限">不限</option>
+		                			<option value="0-20人">0-20人</option>
+		                			<option value="20-99人">20-99人</option>
+		                			<option value="100-499人">100-499人</option>
+									<option value="500-999人">500-999人</option>
+		                			<option value="1000-9999人">1000-9999人</option>
+		                			<option value="10000人以上">10000人以上</option>
+		                		</select>
+		                	</li>
+		                	<li>
+		                		<p class="fbox_div_text3"><i class="redStars">* </i>公司简称</p>
+		                		<input class="property_text" type="text" name="" maxlength="10" placeholder="建议在四个字内，创建后不可修改">
+		                	</li>
+		                	<li>
+		                		<p><i class="redStars">* </i>所在区域</p>
+		                		<select>
+		                			<option value="volvo1">Volvo1</option>
+		                			<option value="volvo2">Volvo2</option>
+		                			<option value="volvo3">Volvo3</option>
+		                			<option value="volvo4">Volvo4</option>
+		                		</select>
+		                	</li>
+		                	<li>
+		                		<p><i class="redStars">* </i>所在行业</p>
+		                		<select>
+		                			<option value="volvo1">Volvo1</option>
+		                			<option value="volvo2">Volvo2</option>
+		                			<option value="volvo3">Volvo3</option>
+		                			<option value="volvo4">Volvo4</option>
+		                		</select>
+		                	</li>
+		                	<li>
+		                		<p><i class="redStars">* </i>所在园区</p>
+		                		<select>
+		                			<option value="volvo1">Volvo1</option>
+		                			<option value="volvo2">Volvo2</option>
+		                			<option value="volvo3">Volvo3</option>
+		                			<option value="volvo4">Volvo4</option>
+		                		</select>
+		                	</li>
+		                </ul>
+					</div>
+					<p class="textarea_p"><i class="redStars">* </i>公司简介</p>
+					<textarea class="abstract" placeholder="请输入该公司简介"></textarea>
+				</div>
+			</div>
+			<div class="boxpage1">
+				<!-- 基本资料 -->
+				<div class="fbox_1">
+					<span class="fbox_span">基本资料</span>
+					<div class="fbox_div">
+						<ul class="clear">
+							<li>
+								<span><i class="redStars">* </i>姓名</span>
+								<input class="dataform1" maxlength="5" type="text" name="">
+								<p class="datap1" style="color: red;">1</p>
+							</li>
+							<li>
+								<span><i class="redStars">* </i>职位</span>
+								<input class="dataform2" type="text" name="">
+								<p class="datap2" style="color: red;">2</p>
+							</li>
+						</ul>
+						<ul class="clear">
+							<li>
+								<span><i class="redStars">* </i>手机号码</span>
+								<input class="dataform3" maxlength="11" type="tel" name="">
+								<p class="datap3" style="color: red;">3</p>
+							</li>
+							<li>
+								<span>座机</span>
+								<input class="dataform4" type="tel" name="" placeholder="非必填 座机号码格式为：XXX-XXXXXXX">
+								<p class="datap4" style="color: red;">4</p>
+							</li>
+							<li>
+								<span>邮箱</span>
+								<input type="" name="">
+								<p class="datap5" style="color:red">5</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a class="skip" href="index.html">取消上传</a>
+				<span class="lastsubmit">上传</span>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

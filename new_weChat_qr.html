@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>联系扫码</title>
+	<link rel="stylesheet" type="text/css" href="css/crm_style.css">
+	<link rel="stylesheet" type="text/css" href="simditor/styles/simditor.css">
+	<link rel="stylesheet" type="text/css" href="css/new_weChat_server.css">
+</head>
+<body>
+	<h2>微信端>扫码联系>新增</h2>
+	<p>文字内容</p>
+	<textarea id="editor" placeholder="需求详情描述" name="describe" class="thistextarea"></textarea>
+	</div>
+	<p>说明</p>
+	<input type="text" name="">
+	<div>
+		<span class="btn_false">取消</span>
+		<span class="btn_true">保存</span>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="simditor/scripts/module.js"></script>
+<script type="text/javascript" src="simditor/scripts/uploader.js"></script>
+<script type="text/javascript" src="simditor/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="simditor/scripts/simditor.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 富文本编辑器
+		var editor = new Simditor({
+		  textarea: $('#editor'),
+		  toolbar:['title','bold','italic','underline','strikethrough','fontScale','color','ol','ul','blockquote','code','table','link','image','hr','indent','outdent','alignment'],
+		});
+	})
+</script>
+</html>

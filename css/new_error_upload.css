@@ -1,0 +1,36 @@
+body{
+    padding: 40px;
+}
+h2{
+    font-size: 32px;
+    color: rgba(0,0,0,.85);
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.uploadp{
+    font-size: 18px;
+    color: rgba(0,0,0,.45);
+    margin-bottom: 8px;
+}
+.inputtype{
+    width: 334px;
+    height: 18px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 2px;
+    margin-bottom: 40px;
+}
+.btn_false,.btn_true{
+    padding: 8px 24px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 2px;
+}
+.btn_false{
+    border: 1px solid rgba(0,0,0,.15);
+    color: rgba(0,0,0,0.45);
+}
+.btn_true{
+    background: #1A8CFF;
+    color: #fff;
+}

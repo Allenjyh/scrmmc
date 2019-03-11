@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>其他管理</title>
+	<link rel="stylesheet" href="js/css/layui.css" />
+  	<link rel="stylesheet" href="js/css/layui.mobile.css" />
+	<link rel="stylesheet" href="css/crm_style.css">
+	<link rel="stylesheet" type="text/css" href="css/new_orhermanage.css">
+	<link rel="stylesheet" type="text/css" href="css/scrmmcStyle.css">
+</head>
+<body>
+	<h2 class="arherh2">其他管理</h2>
+	<div class="arherbox">
+		<span class="clickspan">网站LOGO</span>
+		<span>二维码</span>
+	</div>
+	<ul class="managebox">
+		<!-- logo盒子 -->
+		<li>
+			<div class="logobox">
+				<img src="images/icon/Group.png">
+				<img src="images/icon/crmLogo2.png">
+			</div>
+			<p class="logoboxp">最大文件不超过2Mb，只支持.jpg .png 格式。</p>
+		</li>
+		<!-- 二维码盒子 -->
+		<li>
+			<form class="layui-form" action="">
+				<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+					<div style="width:92px">
+						<select name="interest" lay-filter="aihao">
+					        <option value=""></option>
+					        <option value="0">写作</option>
+					        <option value="1">阅读</option>
+					        <option value="2">游戏</option>
+					        <option value="3">音乐</option>
+					        <option value="4">旅行</option>
+					     </select>
+					</div>
+					<div>
+
+						<a href="new_adverupload.html" class="layui-btn layui-btn-normal upload">上传</a>
+
+						<button class="layui-btn layui-btn-primary delete">删除</button>
+						<!--点击某行跳转-->
+						<a href="viewdetails.html"><div class="rowClick" id="row" style="display: none;">梵蒂冈</div></a>
+					</div>
+				</div>
+				<table class="layui-hide" id="test" lay-filter="test" lay-skin='line'></table>
+			</form>
+		</li>
+	</ul>
+	<script type="text/html" id="switchTpl">
+	  <!-- 这里的 checked 的状态只是演示 -->
+	  <input data-id="{{d.id}}" type="checkbox" name="{{d.id}}" value="{{d.showType}}" lay-skin="switch" lay-text=" | " lay-filter="sexDemo" {{ d.showType == 'Y' ? 'checked' : '' }}>
+	</script>
+	<script type="text/html" id="imgTpl">
+	  <div class="layer-photos-demo" onclick="" style="cursor:pointer;">
+	  	<img class="advImg" layer-pid="图片id，可以不写"  layer-src="{{d.img}}" src="{{d.img}}" alt="图片名" width="72px" height="40px">
+	  </div>
+	</script>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/new_orhermanage.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+  	<script type="text/javascript" src="js/layui.all.js" ></script>
+	<!-- <script type="text/javascript" src="js/layui.js"></script> -->
+</body>
+<script>
+	var ids = [];
+	layui.use('table', function(){
+		var table = layui.table
+	  	,form = layui.form
+	  	,laypage = layui.laypage;
+		  table.render({
+		    elem: '#test'
+		    ,skin:'line'
+		    ,toolbar: '#toolbarDemo'
+	//	  	,url:'new_file.json'
+			,data:[{  
+				"id":"1001",
+				"img":"img/test/5ae2c7541ef77.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有的水果放到",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "Y",
+				 
+			},{  
+				"id":"1002",
+				"img":"img/test/5ae2c75458309.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有梵蒂冈梵蒂冈",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "Y",
+				 
+			},{  
+				"id":"1003",
+				"img":'img/test/5abde9af99991.jpg',
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有规范的股份达",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "Y",
+				 
+			},{  
+				"id":"1004",
+				"img":"img/test/5abde9af99991.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有梵蒂冈梵蒂冈.",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1005",
+				"img":"img/test/5ae2c7541ef77.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有规范合格",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1006",
+				"img":"img/test/5ae2c75458309.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有发多少放",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1007",
+				"img":'img/test/5abde9af99991.jpg',
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有发刚发的噶都是",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1008",
+				"img":"img/test/5abde9af99991.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有方大化工",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1009",
+				"img":"img/test/5ae2c7541ef77.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有分割梵蒂冈",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1010",
+				"img":"img/test/5ae2c75458309.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有分割",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1011",
+				"img":'img/test/5abde9af99991.jpg',
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有第三方",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			},{  
+				"id":"1012",
+				"img":"img/test/5abde9af99991.jpg",
+				"noteInfo": "这是一张首页的咸鱼美颜图片，还有第三方",
+				"advPosit": "A4页面",
+				"date": "2019/01/01",
+				"showType": "",
+				 
+			}]
+	    ,title: '用户数据表'
+	    ,cellMinWidth: 80
+	//  ,height: heig
+			,height: 'full-30'
+	    ,cols: [[
+	      {type: 'checkbox',align: 'right'}
+	      ,{field:'img', title:'缩略图',align: 'center',templet: '#imgTpl'}/*templet:'<div class="layer-photos-demo"><img layer-src="{{d.img}}" src="{{d.img}}" width="70px" height="40px"></div>'}*/
+	      ,{field:'noteInfo', title:'备注信息', align: 'center', event: 'setInfo', style:'cursor: pointer;'}
+	      ,{field:'advPosit', title:'广告位置', align: 'center'}
+	      ,{field:'date', title:'上传日期', align: 'center'}
+	      ,{field:'showType',title:'显示状态', align: 'center',templet: '#switchTpl', unresize: true}
+	    ]]
+		  ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+		    layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+		    //,curr: 5 //设定初始在第 5 页
+		    ,limit: 7
+		    ,limits: [7,10,20,30,40,50,60,70,80,90,100]
+		    ,groups: 10 //只显示 1 个连续页码
+		    ,first: false //不显示首页
+		    ,last: false //不显示尾页
+		    
+		  }
+
+	    ,done: function(res, curr, count) { //表格数据加载完后的事件
+		    //调用示例
+		    layer.photos({//点击图片弹出
+		        photos: '.layer-photos-demo'
+		        ,anim: 1 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+		    });
+		    //如果是异步请求数据方式，res即为你接口返回的信息。
+		    //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+		    
+		    console.log(res);
+		
+		    //得到当前页码
+		    console.log(curr);
+		
+		    //得到数据总量
+		    console.log(count);
+		    
+		    $('.boxbox').find('.layui-table-body').find("table" ).find("tbody").children("tr").on('click',function(){
+		    	if ($(this).index() == 0) {
+		    	} else{
+		    		var id = JSON.stringify($('.boxbox').find('.layui-table-body').find("table" ).find("tbody").find(".layui-table-hover").data('index'));
+		        var obj = res.data[id];
+		        console.log(obj.id);
+		        $('#row').click();
+		    	}
+	    	});
+	    	
+	    	$('.boxbox').find('.layui-table-body').find("table" ).find("tbody").children("tr").children("td[data-field='img']").on('click',function(e){
+	    		e.stopPropagation();
+	    	});
+	    	
+			}
+		
+		 
+	  });
+	  
+		//监听显示状态
+		form.on('switch(sexDemo)', function(obj){
+			event.stopPropagation();//阻止事件冒泡
+	//		layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+		});
+		
+	  //监听单元格事件
+	  table.on('tool(test)', function(obj){
+	    var data = obj.data;
+	    if(obj.event === 'setInfo'){
+	      layer.prompt({
+	        formType: 2
+	        ,title: '修改 ID 为 ['+ data.id +'] 的备注信息'
+	        ,value: data.noteInfo
+	      }, function(value, index){
+	        layer.close(index);
+	        
+	        //这里一般是发送修改的Ajax请求
+	        
+	        //同步更新表格和缓存对应的值
+	        obj.update({
+	          noteInfo: value
+	        });
+	      });
+	    }
+	  });
+	  
+		function deletes(){
+			var checkStatus = table.checkStatus('test');
+			if(checkStatus.data.length==0){
+				parent.layer.msg('请先选择要删除的数据行！', {icon: 2});
+				return ;
+			}
+			ids = [];
+			for(var i=0;i<checkStatus.data.length;i++){
+				ids.push(checkStatus.data[i].id);
+			}
+			layer.confirm('确定删除选中的'+ids.length+'行数据吗', function(index){
+				parent.layer.msg('删除中...', {icon: 16,shade: 0.3,time:1000});
+				for (let i = 0; i < ids.length; i++) {
+	         $("input[data-id='" + ids[i] + "']").parent().parent().parent().remove();
+	      }
+			/*$.post('url',
+			    {'ids':ids},
+			    function(data){
+			        layer.closeAll('loading');
+			        if(data.code==1){
+				        parent.layer.msg('删除成功！', {icon: 1,time:2000,shade:0.2});
+				        location.reload(true);
+			        }else{
+				        parent.layer.msg('删除失败！', {icon: 2,time:3000,shade:0.2});
+			        }
+			    }
+			  );*/
+			  layer.close(index);
+		  });
+		}
+		
+		$('.delete').click(function(){
+				deletes();
+		});
+	});
+
+		
+
+
+	$(function(){
+		
+		$('.boxbox tbody').addClass('sortable');
+		//tr上下拖动
+		/*$(".sortable").sortable({  
+	        cursor: "move",  
+	        items: "tr",                       //只是tr可以拖动  
+	        opacity: 1.0,                      //拖动时，透明度为0.6  
+	        revert: true,                      //释放时，增加动画  
+	        update: function(event, ui) {      //更新排序之后  
+	            var categoryids = $(this).sortable("toArray");  
+	            var $this = $(this);  
+	        }  
+	  });  
+	  $(".sortable").disableSelection(); */
+		
+		
+		$('.laytable-cell-1-0-2').hover(function(){
+			var txt = $(this).text();
+			$(this).attr('title',txt);
+		})
+		
+		
+		/*$(".layui-table-box").find("[data-field='0']").addClass('layui-hide'); 
+		$('.delete').addClass('layui-btn-disabled');
+		$('.editor').click(function(){
+			$(this).hide();
+			$('.cancel').show();
+			$(".layui-table-box").find("[data-field='0']").removeClass('layui-hide');
+			$('.delete').removeClass('layui-btn-disabled');
+		});
+		$('.cancel').click(function(){
+			$(this).hide();
+			$('.editor').show();
+			$(".layui-table-box").find("[data-field='0']").addClass('layui-hide');
+			$('.delete').addClass('layui-btn-disabled');
+			//$(".layui-form-checkbox").removeClass('layui-form-checked');
+			 $(".layui-table-view input[type='checkbox']").each(function(){
+		        $(this).prop("checked",false);
+		    })
+		    form.render('checkbox');
+		});*/
+		
+		/*$('.delete').click(function(){
+			$('.selecteds').click();
+		});*/
+		
+		
+		var x = 10;
+		var y = 20;
+		var newtitle = '';
+		$('.laytable-cell-1-0-2').mouseover(function (e) {
+		    newtitle = this.title;
+		    this.title = '';
+		    $('body').append('<div id="mytitle" >' + newtitle + '</div>');
+		    $('#mytitle').css({
+		        'left': (e.pageX + x + 'px'),
+		        'top': (e.pageY + y - 80 + 'px')
+		    }).show();
+		}).mouseout(function () {
+		    this.title = newtitle;
+		    $('#mytitle').remove();
+		}).mousemove(function (e) {
+		    $('#mytitle').css({
+		        'left': (e.pageX + x +10 + 'px'),
+		        'top': (e.pageY + y - 60 + 'px')
+		    }).show();
+		});
+	    
+	    
+	  hoverOpenImg();
+		/*鼠标悬浮图片放大*/
+		function hoverOpenImg(){
+		    var img_show = null; // tips提示
+		    $('.advImg').hover(function(){
+		        //alert($(this).attr('src'));
+		        var img = "<img class='img_msg' src='"+$(this).attr('src')+"' style='width:460px;' />";
+		        img_show = layer.tips(img, this,{
+		            tips:[1, 'rgba(255,255,255,0)']
+		            ,area: ['490px']
+		            
+		        });
+		    },function(){
+		        layer.close(img_show);
+		    });
+		    $('.advImg').attr('style','max-width:72px');
+		}
+	   
+	});
+</script>
+</html>

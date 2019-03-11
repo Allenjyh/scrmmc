@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>运营模块-广告位</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="js/css/layui.css" />
+  <link rel="stylesheet" href="js/css/layui.mobile.css" />
+  <link rel="stylesheet" href="css/scrmmcStyle.css" />
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+  <script type="text/javascript" src="js/layui.all.js" ></script>
+  
+  <style type="text/css">
+  	
+  </style>
+</head>
+<body>
+ 
+<div class="boxbox" style="padding: 20px 40px; box-sizing: border-box;">
+	<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+		<div><p style="font-size: 32px;">首页轮播</p></div>
+		<div>
+			<a href="bannerupload.html" class="layui-btn layui-btn-normal upload">上传</a>
+			<button class="layui-btn layui-btn-primary delete">删除</button>
+			<span class="hqtd" style="display: none;">获取拖动</span>
+			<!--点击某行跳转-->
+			<a href="viewdetails.html"><div class="rowClick" id="row" style="display: none;">梵蒂冈</div></a>
+		</div>
+	</div>
+	
+	<table class="layui-hide" id="test" lay-filter="test" lay-skin='line'></table>
+</div>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 --> 
+ 
+<script type="text/html" id="switchTpl">
+  <!-- 这里的 checked 的状态只是演示 -->
+  <input data-id="{{d.id}}" type="checkbox" name="{{d.id}}" value="{{d.showType}}" lay-skin="switch" lay-text=" | " lay-filter="sexDemo" {{ d.showType == 'Y' ? 'checked' : '' }}>
+</script>
+<script type="text/html" id="imgTpl">
+  <div class="layer-photos-demo" onclick="" style="cursor:pointer;">
+  	<img data-id="{{d.id}}" class="advImg" layer-pid="图片id，可以不写"  layer-src="{{d.img}}" src="{{d.img}}" alt="图片名" width="72px" height="40px">
+  </div>
+</script>
+
+<script type="text/html" id="sort">
+  <div class="" style="cursor:pointer; line-height: 48px;">
+  	<img class="" layer-pid="图片id，可以不写"  layer-src="{{d.sortImg}}" src="{{d.sortImg}}" alt="图片名" width="26px" height="32px">
+  </div>
+</script>
+
+</body>
+
+<script>
+var ids = [];
+layui.use('table', function(){
+	var table = layui.table
+  	,form = layui.form;
+	  table.render({
+	    elem: '#test'
+	    ,skin:'line'
+	    ,toolbar: '#toolbarDemo'
+	//  ,url:'fonts/new_file.json'
+		,data:[{  
+			"id":"1001",
+			"img":"img/test/5ae2c7541ef77.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有的水果放到",
+			"date": "2019/01/01",
+			"showType": "Y",
+			"sortImg":"img/list1.png"
+		},{  
+			"id":"1002",
+			"img":"img/test/5ae2c75458309.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有梵蒂冈梵蒂冈",
+			"date": "2019/01/01",
+			"showType": "Y",
+			"sortImg":"img/list1.png"
+		},{  
+			"id":"1003",
+			"img":'img/test/5abde9af99991.jpg',
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有规范的股份达",
+			"date": "2019/01/01",
+			"showType": "Y",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1004",
+			"img":"img/test/5abde9af99991.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有梵蒂冈梵蒂冈.",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1005",
+			"img":"img/test/5ae2c7541ef77.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有规范合格",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png"
+		},{  
+			"id":"1006",
+			"img":"img/test/5ae2c75458309.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有发多少放",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1007",
+			"img":'img/test/5abde9af99991.jpg',
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有发刚发的噶都是",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1008",
+			"img":"img/test/5abde9af99991.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有方大化工",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1009",
+			"img":"img/test/5ae2c7541ef77.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有分割梵蒂冈",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1010",
+			"img":"img/test/5ae2c75458309.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有分割",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1011",
+			"img":'img/test/5abde9af99991.jpg',
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有第三方",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		},{  
+			"id":"1012",
+			"img":"img/test/5abde9af99991.jpg",
+			"noteInfo": "这是一张首页的咸鱼美颜图片，还有第三方",
+			"date": "2019/01/01",
+			"showType": "",
+			"sortImg":"img/list1.png" 
+		}]
+    ,title: '用户数据表'
+    ,cellMinWidth: 80
+//  ,height: heig
+		,height: 'full-30'
+    ,cols: [[
+      {type: 'checkbox',align: 'right'}
+      ,{field:'img', title:'缩略图',align: 'center',templet: '#imgTpl'}/*templet:'<div class="layer-photos-demo"><img layer-src="{{d.img}}" src="{{d.img}}" width="70px" height="40px"></div>'}*/
+      ,{field:'noteInfo', title:'备注信息', align: 'center', event: 'setInfo', style:'cursor: pointer;'}
+      ,{field:'date', title:'上传日期', align: 'center'}
+      ,{field:'showType',title:'显示状态', align: 'center',templet: '#switchTpl', unresize: true}
+      ,{field:'sortImg', title:'排序',align: 'center',templet: '#sort'}
+    ]]
+	  ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+	    layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+	    //,curr: 5 //设定初始在第 5 页
+	    ,limit: 7
+	    ,limits: [7,10,20,30,40,50,60,70,80,90,100]
+	    ,groups: 10 //只显示 1 个连续页码
+	    ,first: false //不显示首页
+	    ,last: false //不显示尾页
+	    
+	  }
+
+    ,done: function(res, curr, count) { //表格数据加载完后的事件
+	    //调用示例
+	    layer.photos({//点击图片弹出
+	        photos: '.layer-photos-demo'
+	        ,anim: 1 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	    });
+	    //如果是异步请求数据方式，res即为你接口返回的信息。
+	    //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+	    
+	    console.log(res);
+	
+	    //得到当前页码
+	    console.log(curr);
+	
+	    //得到数据总量
+	    console.log(count);
+	    
+	    $('.boxbox').find('.layui-table-body').find("table" ).find("tbody").children("tr").on('click',function(){
+	    	if ($(this).index() <0) {
+	    	} else{
+	    		var id = JSON.stringify($('.boxbox').find('.layui-table-body').find("table" ).find("tbody").find(".layui-table-hover").data('index'));
+	        var obj = res.data[id];
+	        console.log(obj.id);
+	        $('#row').click();
+	    	}
+    	});
+    	
+    	$('.boxbox').find('.layui-table-body').find("table" ).find("tbody").children("tr").children("td[data-field='img']").on('click',function(e){
+    		e.stopPropagation();
+    	});
+    	
+    	
+	    
+		}
+	
+	 
+  });
+  
+  /*//头工具栏事件
+  table.on('toolbar(test)', function(obj){
+    var checkStatus = table.checkStatus(obj.config.id);
+    switch(obj.event){
+      case 'getCheckData':
+        var data = checkStatus.data;
+        for(var i = 0; i<data.length; i++){
+        	selects_id.push(data[i].id);
+        }
+//      layer.alert(JSON.stringify(selects_id));
+        layer.confirm('确定删除选中的'+data.length+'行数据吗', function(index){
+	        layer.close(index);
+	      });
+      break;
+      case 'getCheckLength':
+        var data = checkStatus.data;
+        layer.msg('选中了：'+ data.length + ' 个');
+      break;
+      case 'isAll':
+        layer.msg(checkStatus.isAll ? '全选': '未全选');
+      break;
+    };
+  });*/
+  
+  
+	//监听显示状态
+	form.on('switch(sexDemo)', function(obj){
+		event.stopPropagation();//阻止事件冒泡
+		layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+	});
+	
+  //监听单元格事件
+  table.on('tool(test)', function(obj){
+    var data = obj.data;
+    if(obj.event === 'setInfo'){
+      layer.prompt({
+        formType: 2
+        ,title: '修改 ID 为 ['+ data.id +'] 的备注信息'
+        ,value: data.noteInfo
+      }, function(value, index){
+        layer.close(index);
+        
+        //这里一般是发送修改的Ajax请求
+        
+        //同步更新表格和缓存对应的值
+        obj.update({
+          noteInfo: value
+        });
+      });
+    }
+    
+  });
+	  
+  
+	function deletes(){
+		var checkStatus = table.checkStatus('test');
+		if(checkStatus.data.length==0){
+			parent.layer.msg('请先选择要删除的数据行！', {icon: 2});
+			return ;
+		}
+		ids = [];
+		for(var i=0;i<checkStatus.data.length;i++){
+			ids.push(checkStatus.data[i].id);
+		}
+		layer.confirm('确定删除选中的'+ids.length+'行数据吗', function(index){
+			parent.layer.msg('删除中...', {icon: 16,shade: 0.3,time:1000});
+			for (let i = 0; i < ids.length; i++) {
+         $("input[data-id='" + ids[i] + "']").parent().parent().parent().remove();
+      }
+		/*$.post('url',
+		    {'ids':ids},
+		    function(data){
+		        layer.closeAll('loading');
+		        if(data.code==1){
+			        parent.layer.msg('删除成功！', {icon: 1,time:2000,shade:0.2});
+			        location.reload(true);
+		        }else{
+			        parent.layer.msg('删除失败！', {icon: 2,time:3000,shade:0.2});
+		        }
+		    }
+		  );*/
+		  layer.close(index);
+	  });
+	};
+	
+	$('.delete').click(function(){
+			deletes();
+	});
+	
+	
+	/*$(".layui-table-box").find("[data-field='0']").addClass('layui-hide'); 
+	$('.delete').addClass('layui-btn-disabled');
+	$('.editor').click(function(){
+		$(this).hide();
+		$('.cancel').show();
+		$(".layui-table-box").find("[data-field='0']").removeClass('layui-hide');
+		$('.delete').removeClass('layui-btn-disabled');
+		isdelete = true;
+	});
+	$('.cancel').click(function(){
+		$(this).hide();
+		$('.editor').show();
+		$(".layui-table-box").find("[data-field='0']").addClass('layui-hide');
+		$('.delete').addClass('layui-btn-disabled');
+		//$(".layui-form-checkbox").removeClass('layui-form-checked');
+		isdelete = false;
+	});*/
+	
+});
+
+
+
+$(function(){
+	var sortThis,thisNext,thisPre;
+	$('.boxbox tbody').addClass('sortable');
+	//tr上下拖动
+	$(".sortable").sortable({  
+        cursor: "move",  
+        items: "tr",                       //只是tr可以拖动  
+        opacity: 1.0,                      //拖动时，透明度为0.6  
+//        revert: true,                      //释放时，增加动画  
+        update: function(event, ui) {      //更新排序之后  
+            var categoryids = $(this).sortable("toArray");  
+            var $this = $(this);  
+        },
+				
+				sort:function(e, ui){
+					select_item = ui.item; //当前拖动的元素
+					sortThis = select_item.attr('data-index');
+					thisPre = $(this).find('tr').filter('.ui-sortable-placeholder').prev('tr').attr('data-index');
+					thisNext = $(this).find('tr').filter('.ui-sortable-placeholder').next('tr').attr('data-index');
+				},
+				
+				stop:function(e, ui){
+					console.log("当前："+sortThis+"\n"+"上："+thisPre+"\n"+"下："+thisNext);
+					if(thisNext!=undefined){
+						var cha = Math.abs(sortThis - thisNext);//取觉得值
+						if (sortThis>thisNext) {
+							console.log("向上拖动了");
+							sortThis = sortThis-1;
+							for (let i = 0;i<cha;i++) {
+								var sort = sortThis--
+								console.log(sort);
+								var thisId = $(".boxbox .layui-table-body tr[data-index='"+sort+"']").find('img').attr('data-id');
+								var thisSort = $(".boxbox .layui-table-body tr[data-index='"+sort+"']").find('img').attr('src');
+								console.log('id为'+thisId+'sort为'+thisSort);
+							}
+							
+						} else{
+							console.log("向下拖动了");
+							
+							for (let i = 1;i<cha;i++) {
+								var sort = parseInt(sortThis)+i;
+								console.log(sort);
+								var thisId = $(".boxbox .layui-table-body tr[data-index='"+sort+"']").find('img').attr('data-id');
+								var thisSort = $(".boxbox .layui-table-body tr[data-index='"+sort+"']").find('img').attr('src');
+								console.log('id为'+thisId+'sort为'+thisSort);
+							}
+							
+						}
+					}else{
+						console.log("向下拖动到最后了");
+						var cha = Math.abs(thisPre - sortThis);//取觉得值
+						for (let i = 0;i<cha;i++) {
+							var sort = parseInt(thisPre)-i;
+							console.log(sort);
+							var thisId = $(".boxbox .layui-table-body tr[data-index='"+sort+"']").find('img').attr('data-id');
+							var thisSort = $(".boxbox .layui-table-body tr[data-index='"+sort+"']").find('img').attr('src');
+							console.log('id为'+thisId+'sort为'+thisSort);
+						}
+					}
+				}
+				/*sort:function(e, ui){
+					select_item = ui.item; //当前拖动的元素
+					sortThis = select_item.find('img').attr('data-id');
+					thisPre = $(this).find('tr').filter('.ui-sortable-placeholder').prev('tr').find('img').attr('data-id');
+					thisNext = $(this).find('tr').filter('.ui-sortable-placeholder').next('tr').find('img').attr('data-id');
+				},*/
+				/*stop:function(e, ui){
+					console.log("当前："+sortThis+"\n"+"上："+thisPre+"\n"+"下："+thisNext);
+					if(thisNext!=undefined){
+						var cha = Math.abs(sortThis - thisNext);//取觉得值
+						if (sortThis>thisNext) {
+							console.log("向上拖动了");
+							sortThis = sortThis-1;
+							for (let i = 0;i<cha;i++) {
+								var sort = sortThis--
+								console.log(sort);
+								var thisId = $(".boxbox .layui-table-body tr img[data-id='"+sort+"']").attr('src');
+								console.log('id为'+thisId);
+							}
+							
+						} else{
+							console.log("向下拖动了");
+							
+							for (let i = 1;i<cha;i++) {
+								var sort = parseInt(sortThis)+i;
+								console.log(sort);
+								var thisId = $(".boxbox .layui-table-body tr img[data-id='"+sort+"']").attr('src');
+								console.log('id为'+thisId);
+							}
+							
+						}
+					}else{
+						console.log("向下拖动到最后了");
+						var cha = Math.abs(thisPre - sortThis);//取觉得值
+						for (let i = 0;i<cha;i++) {
+							var sort = parseInt(thisPre)-i;
+							console.log(sort);
+							var thisId = $(".boxbox .layui-table-body tr img[data-id='"+sort+"']").attr('src');
+							console.log('id为'+thisId);
+						}
+					}
+				}*/
+  });  
+  $(".sortable").disableSelection(); 
+	
+	
+
+
+	$('.laytable-cell-1-0-2').hover(function(){
+		var txt = $(this).text();
+		$(this).attr('title',txt);
+	})
+	
+	
+	
+	var x = 10;
+	var y = 20;
+	var newtitle = '';
+	$('.laytable-cell-1-0-2').mouseover(function (e) {
+	    newtitle = this.title;
+	    this.title = '';
+	    $('body').append('<div id="mytitle" >' + newtitle + '</div>');
+	    $('#mytitle').css({
+	        'left': (e.pageX + x + 'px'),
+	        'top': (e.pageY + y - 80 + 'px')
+	    }).show();
+	}).mouseout(function () {
+	    this.title = newtitle;
+	    $('#mytitle').remove();
+	}).mousemove(function (e) {
+	    $('#mytitle').css({
+	        'left': (e.pageX + x +10 + 'px'),
+	        'top': (e.pageY + y - 60 + 'px')
+	    }).show();
+	});
+    
+    
+  hoverOpenImg();
+	/*鼠标悬浮图片放大*/
+	function hoverOpenImg(){
+	    var img_show = null; // tips提示
+	    $('.advImg').hover(function(){
+	        //alert($(this).attr('src'));
+	        var img = "<img class='img_msg' src='"+$(this).attr('src')+"' style='width:460px;' />";
+	        img_show = layer.tips(img, this,{
+	            tips:[1, 'rgba(255,255,255,0)']
+	            ,area: ['490px']
+	            
+	        });
+	    },function(){
+	        layer.close(img_show);
+	    });
+	    $('.advImg').attr('style','max-width:72px');
+	}
+   
+});
+
+
+</script>
+</html>

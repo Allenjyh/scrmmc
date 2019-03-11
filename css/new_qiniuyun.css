@@ -1,0 +1,131 @@
+body{
+	padding:40px;
+}
+th,td{
+	border:none!important;
+}
+.arherh2{
+	font-size: 32px;
+	color: rgba(0,0,0,.85);
+	margin-bottom: 40px;
+}
+.arherbox{
+	width: 100%;
+	border-bottom: 1px solid #1A8CFF;
+}
+.arherbox span{
+	cursor: pointer;
+	display: inline-block;
+	padding: 8px 20px;
+	color: rgba(0,0,0,.85);
+}
+.arherbox .clickspan{
+	color: #fff;
+	background: #1A8CFF;
+}
+.managebox li{
+	margin-top: 48px;
+}
+.managebox li:nth-of-type(2){
+	display: none;
+}
+.qiniubox{
+	position: relative;
+	margin-bottom: 38px;
+}
+.keystyle{
+	font-size: 18px;
+	color: rgba(0,0,0,.65);
+	width: 210px;
+	display: inline-block;
+}
+.thekey{
+	font-size: 14px;
+	color: rgba(0,0,0,.25);
+}
+.floatbox{
+	display: none;
+	position: absolute;
+	top: 28px;
+    left: 10%;
+	width: 722px;
+	height: 130px;
+	padding: 20px 24px;
+	background: #fff;
+	box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
+	z-index: 499;
+}
+.floatbox:before{
+	content: '';
+	position: absolute;
+    top: -12px;
+    left: 60px;
+	width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #ccc;
+}
+.floatbox:after{
+	content: '';
+	position: absolute;
+    top: -11px;
+    left: 60px;
+	width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #fff;
+}
+.float_title{
+	font-size: 14px;
+	color: rgba(0,0,0,.85);
+	margin-bottom: 24px;
+}
+.f_input1,.f_input2,.f_input3{
+	border:1px solid rgba(0,0,0,.15);
+	border-radius: 2px;
+	width: 700px;
+	padding: 8px 10px;
+}
+.btn_box{
+	margin-top: 24px;
+	float: right;
+}
+.btn_false,.btn_true{
+	padding: 5px 24px;
+	border-radius: 2px;
+	cursor: pointer;	
+}
+.btn_false{
+	border:1px solid rgba(0,0,0,.15);
+	color: rgba(0,0,0,.45); 
+}
+.btn_true{
+	background: #1a8cff;
+	color: #fff;
+}
+
+.titlebox{
+	margin-top: 48px;
+	display: flex;
+	justify-content:space-between;
+}
+.box_tit{
+	font-size: 32px;
+	color: rgba(0,0,0,.85);
+}
+.box_new,.box_del{
+	border-radius: 4px;
+	padding: 8px 24px;
+	cursor: pointer;
+	font-size: 18px;
+}
+.box_new{
+	border:1px solid #1a8cff;
+	color: #1a8cff; 
+}
+.box_del{
+	border:1px solid #FF1E1E;
+	color: #FF1E1E; 
+}

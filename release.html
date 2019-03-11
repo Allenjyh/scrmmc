@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>发布公告/上传</title>
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/release.css">
+	<link rel="stylesheet" type="text/css" href="lib/simditor/styles/simditor.css">
+</head>
+<body>
+	<div class="releasebox">
+		<h1>发布公告/发布</h1>
+		<form class="layui-form">
+			<p class="release_p">标题</p>
+			<div class="layui-input-inline inputsize">
+		      <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+		    </div>
+		    <div class="release_textarea">
+		    	<textarea id="editor" placeholder="Balabala~" autofocus></textarea>
+		    </div>
+		    
+		    <p class="release_p">发布类型</p>
+			<div class="layui-form-item" pane="">
+			    <div class="layui-input-block">
+			      	<input type="checkbox" name="like1[all]" lay-skin="primary" title="全选">
+			      	<input type="checkbox" name="like1[human]" lay-skin="primary" title="人事">
+			      	<input type="checkbox" name="like1[finance]" lay-skin="primary" title="财务">
+			      	<input type="checkbox" name="like1[icbc]" lay-skin="primary" title="工商">
+			      	<input type="checkbox" name="like1[Law]" lay-skin="primary" title="法律">
+			      	<input type="checkbox" name="like1[house]" lay-skin="primary" title="房产">
+			      	<input type="checkbox" name="like1[it]" lay-skin="primary" title="IT">
+			      	<input type="checkbox" name="like1[advert]" lay-skin="primary" title="广告">
+			      	<input type="checkbox" name="like1[marketing]" lay-skin="primary" title="营销">
+			      	<input type="checkbox" name="like1[banking]" lay-skin="primary" title="金融">
+			      	<input type="checkbox" name="like1[medical]" lay-skin="primary" title="医疗">
+			      	<input type="checkbox" name="like1[renovation]" lay-skin="primary" title="装修">
+			      	<input type="checkbox" name="like1[housekeeping]" lay-skin="primary" title="家政">
+			      	<input type="checkbox" name="like1[restaurant]" lay-skin="primary" title="餐饮">
+			      	<input type="checkbox" name="like1[traffic]" lay-skin="primary" title="交通">
+			      	<input type="checkbox" name="like1[tourism]" lay-skin="primary" title="旅游">
+			      	<input type="checkbox" name="like1[logistics]" lay-skin="primary" title="物流">
+			      	<input type="checkbox" name="like1[other]" lay-skin="primary" title="其他">
+			    </div>
+			</div>
+		    <div class="release_p">
+		    	<a class="layui-btn layui-btn-primary" href="announcement.html">取消上传</a>
+		    	<button class="layui-btn layui-btn-normal jiadebtn"  lay-submit="" lay-filter="demo1">上传保存</button>
+		    </div>
+	    </form>
+	</div>
+</body>
+<script type="text/javascript" src="js/layui.js"></script>
+<!--  ↓↓↓ 富文本编辑器 ↓↓↓  -->
+<script type="text/javascript" src="lib/simditor/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="lib/simditor/scripts/module.js"></script>
+<script type="text/javascript" src="lib/simditor/scripts/uploader.js"></script>
+<script type="text/javascript" src="lib/simditor/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="lib/simditor/scripts/simditor.js"></script>
+
+<script type="text/javascript" src="js/release.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var editor = new Simditor({
+		  textarea: $('#editor'),
+		  toolbar:['title','bold','italic','underline','strikethrough','fontScale','color','ol','ul','blockquote','code','table','link','image','hr'            ,'indent','outdent','alignment'],
+		  imageButton:['upload','external'],
+		  upload:{
+			    url: '',
+			    params: null,
+			    fileKey: 'upload_file',
+			    connectionCount: 3
+			}
+		});
+	})
+	
+</script>
+<script type="text/javascript">
+	layui.use('form', function(){
+  var form = layui.form;
+  form.render();
+});   
+</script>
+</html>

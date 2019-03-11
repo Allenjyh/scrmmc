@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>发布任务/查看详情</title>
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/viewdeails.css">
+</head>
+<body>
+	<div class="viewdetailsbox">
+		<div class="box_top">
+			<h1>发布任务/查看详情</h1>
+			<div class="top_btnbox">
+				<span class="btnbox_true">通过</span>
+				<div class="btnbox_false">不通过 <i class="sanicon"></i>
+					<ul class="btnbox_ul">
+						<li class="btnbox_li1">标题不符</li>
+						<li class="btnbox_li2">描述不符</li>
+						<li class="btnbox_li3">标题与描述不符</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="box_cent">
+			<h2 style="color:#198cff;margin-top: 40px; font-size: 24px;">订单信息</h2>
+			<ul class="content_ul clear">
+				<li>单号：<span>A123456</span></li>
+				<li>状态：<span>A123456</span></li>
+				<li>发布类型：<span>A123456</span></li>
+				<li>申请日期：<span>A123456</span></li>
+				<li>选择标签：<span>A123456</span></li>
+			</ul>
+			<p class="content_p">标题：<span>这里标题这里标题这里标题这里标题这里标题这里标题这里标题这里标题这里标题这里标题这里标题</span>></p>
+			<h3>补充描述： </h3>
+			<div class="content_p">这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	/*var i = 0;
+	$('.btnbox_false').click(function() {
+		i++;
+		if(i%2==0){
+			$('.btnbox_ul').hide();
+		}else{
+			$('.btnbox_ul').show();
+		}
+	});*/
+	$('.btnbox_false').hover(function() {
+		$('.btnbox_ul').stop();
+		$('.btnbox_ul').slideDown();
+	},function(){
+		$('.btnbox_ul').stop();
+		$('.btnbox_ul').slideUp();
+	});
+	
+	$('.btnbox_ul').on('click','li',function(){
+		$('.btnbox_ul').hide();
+		let ii = $(this).index();
+		switch(ii){
+			case 1: thistype(ii);
+			break;
+			case 2: thistype(ii);
+			break;
+			case 3: thistype(ii);
+			break;
+		}
+	})
+	function thistype(number){
+		$.ajax({
+		   type: "GET",
+		   url: "",
+		   data:{type:number},
+		   success: function(msg){
+		     alert( "Data Saved: " + msg );
+		   }
+		});
+	}
+})
+</script>
+</html>

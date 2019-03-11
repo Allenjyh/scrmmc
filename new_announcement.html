@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>发布公告</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="js/css/layui.css" />
+		<link rel="stylesheet" href="js/css/layui.mobile.css" />
+		<link rel="stylesheet" href="css/scrmmcStyle.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/layui.all.js"></script>
+
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+
+		<div class="boxbox" style="padding: 20px 40px; box-sizing: border-box;">
+			<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+				<div>
+					<p style="font-size: 32px;">发布公告</p>
+				</div>
+				<div>
+					<button class="layui-btn layui-btn-normal upload">发布</button>
+					<!--<button class="layui-btn layui-btn-primary editor">编辑</button>
+					<button class="layui-btn layui-btn-primary cancel" style="display: none;">取消</button>-->
+					<button class="layui-btn layui-btn-primary delete">删除</button>
+					<!--点击某行跳转-->
+					<a href="announcementDetail.html">
+						<div class="rowClick" id="row" style="display: none;">梵蒂冈</div>
+					</a>
+				</div>
+			</div>
+			<table class="layui-hide" id="test" lay-filter="test" lay-skin='line'></table>
+		</div>
+	
+		<script type="text/html" id="imgTpl">
+			<div class="" onclick="" style="">
+				<img data-id="{{d.id}}" class="advImg" layer-pid="图片id，可以不写" layer-src="{{d.img}}" src="{{d.img}}" alt="图片名" width="32px" height="32px" style="border-radius: 100%; vertical-align: middle;">
+				<span style="padding-left: 5px;display: inline-block;">{{d.name}}</span>
+			</div>
+		</script>
+
+	</body>
+
+	<script>
+		var ids = [];
+		layui.use('table', function() {
+			var table = layui.table,
+				form = layui.form,
+				laypage = layui.laypage;
+			table.render({
+				elem: '#test',
+				skin: 'line',
+				toolbar: '#toolbarDemo'
+					//	  	,url:'new_file.json'
+					,
+				data: [{
+					"id": "1001",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+				}, {
+					"id": "1002",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1003",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1004",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1005",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1006",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1007",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1008",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1009",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1010",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1011",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+
+				}, {
+					"id": "1012",
+					"img": "img/test/5ae2c7541ef77.jpg",
+					"name": "广州乙组信息科技有限公司",
+					"title": "创客LIVE | 乐元素征集大赛即将落幕，高薪职位、十万大奖正等你第三方水电费收到第三方",
+					"date": "2019/01/01",
+				}],
+				title: '用户数据表',
+				cellMinWidth: 80
+					//  ,height: heig
+					,
+				height: 'full-30',
+				cols: [
+					[{
+						type: 'checkbox',
+						align: 'right'
+					}, {
+						field: 'id',
+						title: '账号',
+						align: 'center'
+					}, {
+						field: 'img',
+						title: '公司名称',
+						templet: '#imgTpl'
+					}, {
+						field: 'title',
+						title: '标题'
+					}, {
+						field: 'date',
+						title: '上传日期',
+						align: 'center'
+					}]
+				],
+				page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+					layout: ['count', 'prev', 'page', 'next', 'skip', 'limit'] //自定义分页布局
+						//,curr: 5 //设定初始在第 5 页
+						,
+					limit: 7,
+					limits: [7, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+					groups: 10 //只显示 1 个连续页码
+						,
+					first: false //不显示首页
+						,
+					last: false //不显示尾页
+
+				}
+
+				,
+				done: function(res, curr, count) { //表格数据加载完后的事件
+					//调用示例
+					layer.photos({ //点击图片弹出
+						photos: '.layer-photos-demo',
+						anim: 1 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+					});
+					//如果是异步请求数据方式，res即为你接口返回的信息。
+					//如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+
+					console.log(res);
+
+					//得到当前页码
+					console.log(curr);
+
+					//得到数据总量
+					console.log(count);
+					
+					
+					$('.boxbox').find('.layui-table-body').find("table").find("tbody").children("tr").children("td").on('click', function() {
+						if($(this).index() == 0) {} else {
+							var id = JSON.stringify($('.boxbox').find('.layui-table-body').find("table").find("tbody").find(".layui-table-hover").data('index'));
+							var obj = res.data[id];
+							console.log(obj.id);
+							$('#row').click();
+						}
+					});
+				}
+
+			});
+
+			//监听显示状态
+			form.on('switch(sexDemo)', function(obj) {
+				layer.tips(this.value + ' ' + this.name + '：' + obj.elem.checked, obj.othis);
+			});
+			//监听单元格事件
+			table.on('tool(test)', function(obj) {
+				var data = obj.data;
+				if(obj.event === 'setInfo') {
+					layer.prompt({
+						formType: 2,
+						title: '修改 ID 为 [' + data.id + '] 的备注信息',
+						value: data.noteInfo
+					}, function(value, index) {
+						layer.close(index);
+
+						//这里一般是发送修改的Ajax请求
+
+						//同步更新表格和缓存对应的值
+						obj.update({
+							noteInfo: value
+						});
+					});
+				}
+			});
+
+			function deletes() {
+				var checkStatus = table.checkStatus('test');
+				if(checkStatus.data.length == 0) {
+					parent.layer.msg('请先选择要删除的数据行！', {
+						icon: 2
+					});
+					return;
+				}
+				ids = [];
+				for(var i = 0; i < checkStatus.data.length; i++) {
+					ids.push(checkStatus.data[i].id);
+				}
+				layer.confirm('确定删除选中的' + ids.length + '行数据吗', function(index) {
+					parent.layer.msg('删除中...', {
+						icon: 16,
+						shade: 0.3,
+						time: 1000
+					});
+					for(let i = 0; i < ids.length; i++) {
+						$("img[data-id='" + ids[i] + "']").parent().parent().parent().parent().remove();
+					}
+					/*$.post('url',
+					    {'ids':ids},
+					    function(data){
+					        layer.closeAll('loading');
+					        if(data.code==1){
+						        parent.layer.msg('删除成功！', {icon: 1,time:2000,shade:0.2});
+						        location.reload(true);
+					        }else{
+						        parent.layer.msg('删除失败！', {icon: 2,time:3000,shade:0.2});
+					        }
+					    }
+					  );*/
+					layer.close(index);
+
+				});
+			}
+
+			$('.delete').click(function() {
+					deletes();
+
+			});
+
+
+		});
+	</script>
+
+</html>

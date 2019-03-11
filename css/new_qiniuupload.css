@@ -1,0 +1,37 @@
+body{
+	padding: 40px;
+}
+.qiniutit{
+	font-size: 32px;
+	color: rgba(0,0,0,.85);
+	font-weight: 500;
+	margin-bottom: 40px;
+}
+.qiniup{
+	font-size: 18px;
+	color: rgba(0,0,0,.65);
+	margin-bottom: 2px;
+}
+input[type="text"]{
+	width: 346px;
+	height: 16px;
+	padding: 10px 12px;
+	border:1px solid rgba(0,0,0,.15);
+	border-radius: 2px;
+	margin-bottom: 30px; 
+}
+.btn_box{
+	margin-top: 80px;
+}
+.btn_false,.btn_true{
+	padding: 8px 12px;
+	border-radius: 2px;
+}
+.btn_false{
+	border:1px solid rgba(0,0,0,.15); 
+	color: rgba(0,0,0,.45);
+}
+.btn_true{
+	background: #1a8cff;
+	color: #fff;
+}

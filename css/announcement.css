@@ -1,0 +1,37 @@
+.announcementbox{
+	margin: 28px 40px; 
+}
+.topbox h1{
+	display: inline-block;
+}
+.topbox div{
+	float: right;
+}
+.layui-table-view .layui-table td,.layui-table th{
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+.layui-table-view{
+	border:none;
+}
+.layui-table-fixed-l{
+	box-shadow: none;
+}
+.layui-table-header,.layui-table thead tr{
+	background: #fff;
+}
+.layui-table-view .layui-table{
+	width: 100%;
+}
+.layui-table-cell{
+	height:60px;
+	line-height: 60px;
+}
+.layui-table-click{
+	background: #fff!important;
+}
+tbody tr:hover{
+	background: #fff!important;
+	box-shadow:0px 2px 16px 0px rgba(0,0,0,0.1);
+}

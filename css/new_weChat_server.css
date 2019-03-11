@@ -1,0 +1,51 @@
+body{
+	padding: 40px;
+}
+h2{
+	font-size: 32px;
+	font-weight: 500;
+	color: rgba(0,0,0,.85);
+	margin-bottom: 30px
+}
+p{
+	font-size: 18px;
+	color: rgba(0,0,0,.45);
+	margin-bottom: 5px;
+}
+input[type="text"]{
+	width: 326px;
+	height: 20px;
+	padding: 10px 12px;
+	border:1px solid rgba(0,0,0,.15);
+	border-radius: 2px;
+	margin-bottom: 24px
+}
+textarea{
+	width: 350px;
+	height: 165px;
+	padding: 5px;
+	border:1px solid rgba(0,0,0,.15);
+	border-radius: 2px;
+	resize: none;
+	margin-bottom: 30px;
+}
+.btn_false,.btn_true{
+	padding: 10px 24px;
+	border-radius: 2px; 
+	cursor: pointer;
+}
+.btn_false{
+	border:1px solid rgba(0,0,0,.15);
+	color: rgba(0,0,0,.45);
+}
+.btn_true{
+	background: #1a8cff;
+	color: #fff;
+}
+.thistextarea{
+	width: 1280px;
+	height: 413px;
+}
+.simditor{
+	margin-bottom: 30px;
+}

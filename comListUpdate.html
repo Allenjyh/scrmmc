@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>园区录入</title>
+	<link rel="stylesheet" type="text/css" href="lib/layui/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/comListUpdate.css">
+</head>
+<body>
+	<div class="parkentry_box">
+		<div class="parkentry_top" style="overflow: hidden;">
+			<h1>企业列表/编辑</h1>
+			<button class="layui-btn layui-btn-normal back_btn" style="float:right;line-height:2em;margin-left:20px;padding-top: 3px">返回</button>
+			<button class="layui-btn layui-btn-normal save_btn" style="float:right;line-height:2em;margin-left:20px;padding-top: 3px">保存</button>
+		</div>
+		<p class="box_p">修改LOGO</p>
+		<div class="layui-upload-drag" id="test10" style="width:100px;height: 100px;">
+		  <i class="layui-icon"></i>
+		  <p>添加LOGO</p>
+		</div>
+		<p class="box_p2">拖拽或点击上传：尺寸720*360像素，文件小于2M，支持JPG、PNG格式</p>
+		<ul class="parkentry_ul clear">
+			<li>
+				<p>所在园区</p>
+				<select class="thisselect" name="type">
+					<option value="1">白云区</option>
+					<option value="2">天河区</option>
+					<option value="3">黄埔区</option>
+					<option value="4">花都区</option>
+				</select>
+			</li>
+			<li>
+				<p>公司名称</p>
+				<input class="park1" type="text" name="">
+			</li>
+			<li>
+				<p>注册手机号码</p>
+				<input class="park2" type="number" name="">
+			</li>
+			<li>
+				<p>法人名称</p>
+				<input class="park9" type="text" name="">
+			</li>
+			<li>
+				<p>工商注册号</p>
+				<input class="park10" type="" name="">
+			</li>
+			<li>
+				<p>所在区域</p>
+				<input class="park11" type="text" name="">
+			</li>
+			<li>
+				<p>公司阶段</p>
+				<select class="thisselect" name="type">
+					<option value="1">白云区</option>
+					<option value="2">天河区</option>
+					<option value="3">黄埔区</option>
+					<option value="4">花都区</option>
+				</select>
+			</li>
+			<li>
+				<p>所属行业</p>
+				<select class="thisselect" name="type">
+					<option value="1">白云区</option>
+					<option value="2">天河区</option>
+					<option value="3">黄埔区</option>
+					<option value="4">花都区</option>
+				</select>
+			</li>
+			<li>
+				<p>公司规模</p>
+				<select class="thisselect" name="type">
+					<option value="1">白云区</option>
+					<option value="2">天河区</option>
+					<option value="3">黄埔区</option>
+					<option value="4">花都区</option>
+				</select>
+			</li>
+			<li>
+				<p>发布数</p>
+				<input class="park12" type="number" name="">
+			</li>
+			<li>
+				<p>入驻日期</p>
+				<input class="park13" type="text" name="" placeholder="2018-12-12">
+			</li>
+		</ul>
+		<p class="box_p">公司描述</p>
+		<div style="width: 1180px; position: relative;">
+			<textarea class="thistextarea textArea" maxlength="1000" placeholder="请输入公司描述"></textarea>
+			<span class="fsize14 black45" style="position: absolute; bottom: 8px; right: -12px; background: #fff;">
+                <span class="textNum fsize14 black45">0</span>/1000
+            </span>
+		</div>
+		<h2 class="box_h2">基本信息</h2>
+		<ul class="parkentry_ul clear">
+			<li>
+				<p>姓名</p>
+				<input class="park3" type="text" name="">
+			</li>
+			<li>
+				<p>职位</p>
+				<input class="park4" type="text" name="">
+			</li>
+			<li>
+				<p>手机号码</p>
+				<input class="park5" type="number" name="">
+			</li>
+			<li>
+				<p>电话</p>
+				<input class="park6" type="number" name="">
+			</li>
+			<li>
+				<p>邮箱</p>
+				<input class="park7" type="email" name="">
+			</li>
+			<li>
+				<p>QQ</p>
+				<input class="park8" type="number" name="">
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="lib/layui/layui.js"></script>
+<script type="text/javascript">
+	layui.use('upload', function(){
+		var $ = layui.jquery
+		  ,upload = layui.upload;
+		  //拖拽上传
+		upload.render({
+		  elem: '#test10'
+		  ,url: '/upload/'
+		  ,done: function(res){
+		    console.log(res)
+		  }
+		});  
+		$(function(){
+			// 正则判断  职位和电话号码只判断了不为空~~
+		    function textchines(thisdiv){   // 正则表达式——中文名字
+		        let Utext = $(thisdiv).val();
+		        let oldtext = $(thisdiv).val().replace(/\s/g, '');
+		        let Thisterm = /^[\u4e00-\u9fa5]{2,5}$/;
+		        if(Thisterm.test(Utext)==true && Utext.length == oldtext.length){
+		            $(thisdiv).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }else{
+		            $(thisdiv).css({'border':'1px solid #F52230'});
+		            return false;
+		        }
+		    }
+		    function textphone(thisclass){  //电话号码判断
+		        let Uphone = $(thisclass).val();
+		        let Tphone = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+		        if(Tphone.test(Uphone) == false|| Uphone == ''){
+		            $(thisclass).css({'border':'1px solid #F52230'});
+		            return false;
+		        }else if(Tphone.test(Uphone)==true){
+		            $(thisclass).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }
+		    }
+		    function textemail(thisclass){  //邮箱判断
+		        let Uemail = $(thisclass).val();
+		        let Temail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		        if(Temail.test(Uemail) == false || Uemail == ''){
+		            $(thisclass).css({'border':'1px solid #F52230'});
+		            return false;
+		        }else if(Temail.test(Uemail) == true){
+		            $(thisclass).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }
+		    }
+		    function textqq(thisclass){   //QQ号码判断
+		        let Uqq = $(thisclass).val();
+		        let Tqq = /^[1-9][0-9]\d{5,12}$/;
+		        if(Tqq.test(Uqq) == false || Uqq == ''){
+		            $(thisclass).css({'border':'1px solid #F52230'});
+		            return false;
+		        }else if(Tqq.test(Uqq) == true){
+		            $(thisclass).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }
+		    }
+		    function textFixed(thisclass){
+		        let Ufixed = $(thisclass).val();
+		        let Tfixed = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
+		        if(Tfixed.test(Ufixed) == false ){
+		            $(thisclass).css({'border':'1px solid #F52230'});
+		            return false;
+		        }else if(Tfixed.test(Ufixed) == true){
+		            $(thisclass).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }
+		    }
+		    function textnull(thisclass){   //不为空判断
+		        let Unull = $(thisclass).val();
+		        if(Unull == ''){
+		            $(thisclass).css({'border':'1px solid #F52230'});
+		            return false;
+		        }else{
+		            $(thisclass).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }
+		    }
+		    function textdate(thisclass){   //判断日期
+		        let Udate = $(thisclass).val();
+		        let Tdate = /^((((19|20)\d{2})-(0?[13-9]|1[012])-(0?[1-9]|[12]\d|30))|(((19|20)\d{2})-(0?[13578]|1[02])-31)|(((19|20)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|((((19|20)([13579][26]|[2468][048]|0[48]))|(2000))-0?2-29))$/;
+		        if(Tdate.test(Udate) == false ){
+		            $(thisclass).css({'border':'1px solid #F52230'});
+		            return false;
+		        }else if(Tdate.test(Udate) == true){
+		            $(thisclass).css({'border':'1px solid #5FCC29'});
+		            return true;
+		        }
+		    }
+		    
+		    
+			$('.save_btn').click(function(){
+				textnull(".park1"); textphone('.park2'); textchines('.park3'); textnull('.park4');
+				textphone('.park5'); textFixed('.park6'); textemail('.park7'); textqq('.park8');
+				textchines('.park9'); textnull('.park10'); textchines('.park11'); textnull('.park12');textdate('.park13');
+				if(textnull(".park1") == false || textphone('.park2') == false || textchines('.park3') == false || textnull('.park4') == false ||
+					textphone('.park5') == false || textFixed('.park6') == false || textemail('.park7') == false || textqq('.park8') == false ||
+					textchines('.park9') == false || textnull('.park10') == false || textchines('.park11') == false || textnull('.park12') == false || textdate('.park13') == false ||
+					textnull('.thistextarea') == false){
+					// layer.msg('不通过');
+					if(textnull(".park1") == false){
+						layer.msg('园区名字不能为空！', {icon: 5});
+					}
+					if(textnull(".park9") == false){
+						layer.msg('法人名称不能为空！', {icon: 5});
+					}
+					if(textnull(".park10") == false){
+						layer.msg('工商注册号不能为空！', {icon: 5});
+					}
+					if(textnull(".park11") == false){
+						layer.msg('所在区域不能为空！', {icon: 5});
+					}
+					if(textnull(".park12") == false){
+						layer.msg('发布数不能为空！', {icon: 5});
+					}
+					if(textnull('.park4') == false){
+						layer.msg('职位不能为空！', {icon: 5});
+					}
+					if(textnull('.thistextarea') == false){
+						layer.msg('补充描述不能为空！', {icon: 5});
+					}
+					if(textphone('.park2') == false){
+						let txt = $('.park2').val();
+						if(txt.length == 0){
+							layer.msg('手机号码不能为空！', {icon: 5});
+						}else if(textphone('.park2') == false){
+							layer.msg('请填写正确的手机号码！', {icon: 5});
+						}
+					}
+					if(textchines('.park3') == false){
+						let txt = $('.park3').val();
+						if(txt.length == 0){
+							layer.msg('姓名不能为空！', {icon: 5});
+						}else if(textchines('.park3') == false){
+							layer.msg('请填写正确的中文名字！', {icon: 5});
+						}
+					}
+					if(textphone('.park5') == false){
+						let txt = $('.park5').val();
+						if(txt.length == 0){
+							layer.msg('手机号码不能为空！', {icon: 5});
+						}else if(textphone('.park5') == false){
+							layer.msg('请填写正确的手机号码！', {icon: 5});
+						}
+					}
+					if(textFixed('.park6') == false){
+						let txt = $('.park6').val();
+						if(txt.length == 0){
+							layer.msg('电话号码不能为空！', {icon: 5});
+						}else if(textFixed('.park6') == false){
+							layer.msg('请填写正确的电话号码！', {icon: 5});
+						}
+					}
+					if(textemail('.park7') == false){
+						let txt = $('.park7').val();
+						if(txt.length == 0){
+							layer.msg('邮箱不能为空！', {icon: 5});
+						}else if(textemail('.park7') == false){
+							layer.msg('请填写正确的邮箱！', {icon: 5});
+						}
+					}
+					if(textqq('.park8') == false){
+						let txt = $('.park8').val();
+						if(txt.length == 0){
+							layer.msg('QQ号不能为空！', {icon: 5});
+						}else if(textqq('.park8') == false){
+							layer.msg('请填写正确的QQ号！', {icon: 5});
+						}
+					}
+					if(textdate('.park13') == false){
+						let txt = $('.park13').val();
+						if(txt.length == 0){
+							layer.msg('日期号不能为空！', {icon: 5});
+						}else if(textqq('.park13') == false){
+							layer.msg('请填写正确的日期！格式:(xxxx-xx-xx)', {icon: 5});
+						}
+					}
+
+				}else if(textnull(".park1") == true && textphone('.park2') == true && textchines('.park3') == true && textnull('.park4') == true &&
+					textphone('.park5') == true && textFixed('.park6') == true && textemail('.park7') == true && textqq('.park8') == true &&
+					textchines('.park9') == true && textnull('.park10') == true && textchines('.park11') == true && textnull('.park12') == true && textnull('.park13') == true &&
+					textnull('.thistextarea') == true){
+
+				}
+			});
+			
+			
+			/*文本域的字数控制*/
+	        $('.textArea').on("keyup", function () {
+	            $('.textNum').text($('.textArea').val().length);//这句是在键盘按下时，实时的显示字数
+	            if ($('.textArea').val().length > 1000) {
+	                $('.textNum').text(1000);//长度大于100时0处显示的也只是100
+	                $('.textArea').val($('.textArea').val().substring(0, 1000));//长度大于100时截取钱100个字符
+	            }
+	        });
+	        $('.textNum').text($('.textArea').val().length);//这句是在刷新的时候仍然显示字数
+        
+		})
+	});
+	</script>
+</html>

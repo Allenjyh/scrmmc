@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页轮播上传</title>
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/bannerupload.css">
+</head>
+<body>
+	<!-- banner的列表页在1.0版本后台拿回来就可以用了，没有修改 -->
+	<div class="uploadbox">
+		<h1>首页轮播/上传</h1>
+		<form class="layui-form">
+			<p class="uploadbox_p">添加上传</p>
+			 <input id="filesfz1" type="file" accept="image/*" name="" style="display: none;position: absolute;top: -9999px;">
+			 <img src="images/icon/upload.png" style="cursor: pointer;">
+			<p class="uploadbox_p">链接</p>
+			<div class="layui-input-inline inputsize">
+		        <input type="tel" name="url" lay-verify="url" autocomplete="off" class="layui-input">
+		    </div>
+		    <p class="uploadbox_p">备注信息</p>
+			<div class="layui-input-inline inputsize">
+		      <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+		    </div>
+		    <p class="uploadbox_p">页面</p>
+		    <div class="layui-input-block inputsize">
+		      <select name="interest" lay-filter="aihao" class="select1">
+		        <option value=""></option>
+		        <option value="0">写作</option>
+		        <option value="1">阅读</option>
+		        <option value="2">游戏</option>
+		        <option value="3">音乐</option>
+		        <option value="4">旅行</option>
+		      </select>
+		    </div>
+		    <p class="uploadbox_p">位置</p>
+		    <div class="layui-input-block inputsize">
+		      <select name="interest" lay-filter="aihao" class="select2">
+		        <option value=""></option>
+		        <option value="0">写作</option>
+		        <option value="1">阅读</option>
+		        <option value="2">游戏</option>
+		        <option value="3">音乐</option>
+		        <option value="4">旅行</option>
+		      </select>
+		    </div>
+		    <p class="uploadbox_p">排序</p>
+		    <div class="layui-input-block inputsize">
+		      <select name="interest" lay-filter="aihao" class="select3">
+		        <option value=""></option>
+		        <option value="0">写作</option>
+		        <option value="1">阅读</option>
+		        <option value="2">游戏</option>
+		        <option value="3">音乐</option>
+		        <option value="4">旅行</option>
+		      </select>
+		    </div>
+		    <p class="uploadbox_p">
+		    	<a class="layui-btn layui-btn-primary" href="homebanner.html" style="margin-right: 16px!important;">取消上传</a>
+		    	<button class="layui-btn layui-btn-normal"  lay-submit="" lay-filter="demo1">上传保存</button>
+		    </p>
+		</form>
+	</div>
+</body>
+	<script type="text/javascript" src="js/layui.js"></script>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/qiniu/qiniu.min.js"></script>
+	<script type="text/javascript" src="js/qiniu/upload_new.js"></script>
+	<script type="text/javascript">
+	layui.use('form', function(){
+		var $ = layui.jquery
+			,form = layui.form;
+		$(function(){
+			$('#shangchuan1').click(function(){
+	            $('#filesfz1').click();
+	        })
+			// 上传到七牛云
+			let imgarr = []; //点击上传的时候
+	        function uploadqiniu(imageids,uploaderid,imgID){
+	            let image_ids = [imageids];//展示的图片
+	            let upload_id = 'uploadbookpage';
+	            let parameter = {'select_type':0,'files':image_ids,'file_type_name':'banner'};
+	            parameter['upload_id'] = upload_id; 
+	            // parameter['uptoken_url'] = 'http://cqb.com/qiniu'; //私密链接
+	            parameter['uptoken_url'] = 'http://scrmmc.cn/qiniu'; //私密链接上传到七牛云
+	            parameter['bucket'] = 'BANNER_BUCKET';  //私密存储空间
+	            parameter['auto_start'] = false; //自动上传
+	            let upload = new Uploader(uploaderid,parameter);
+	            // 触发上传事件
+	            upload.bind('complete',function(res,id){
+	              imgarr[imgID]= res.key;
+	            });
+	            upload.bind('add',function(res,file_key){
+	                for (let i = 0;i < image_ids.length; ++i){
+	                    if ($('#' + image_ids[i]).attr('src') != "")
+	                        $('#' + image_ids[i]).show();
+	                }
+	            });
+	        }
+	        uploadqiniu('shangchuan1','filesfz1','0');
+		})
+		
+
+        
+	});
+	</script>
+</html>
